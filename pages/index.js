@@ -2,8 +2,13 @@ import Layout from "../components/layout";
 import TankThumbnail from "../components/tanks/thumbnail";
 import ToolBar from "../components/tanks/toolbar";
 import { fetchGet } from "../utils/fetch";
+import { withSessionSsr } from "../helpers/ironSession";
 
-export async function getServerSideProps(context) {
+
+
+export const getServerSideProps = withSessionSsr(
+  async function getServerSideProps({ req }) {
+    console.log(req.session)
   const tanks = await fetchGet(`${process.env.APP_URL}/api/tank/all`);
   //const eventData = await fetchGet(`${process.env.APP_URL}/api/event/all`);
   let eventData = []
@@ -25,7 +30,7 @@ export async function getServerSideProps(context) {
       tankData: combobulateData(tanks, eventData),
     },
   };
-}
+})
 
 export default function Home({ tankData }) {
   console.log(tankData)
