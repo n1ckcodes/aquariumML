@@ -9,6 +9,7 @@ async function testRoute(req, res) {
     return res.status(401).end();
   }
   else {
-    return res.send('i9t worked').end()
+
+    return res.json(req.session.user).end()
   }
 }

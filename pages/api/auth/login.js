@@ -8,6 +8,7 @@ async function loginRoute(req, res) {
   req.session.user = {
     id: 230,
     admin: true,
+    test: 'ok'
   };
   await req.session.save();
   res.send("Logged in");

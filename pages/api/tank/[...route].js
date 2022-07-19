@@ -2,6 +2,8 @@ import nc from "next-connect";
 import { createTank, getTanks, getTankById } from "../db/tankQueries";
 import dayjs from "dayjs";
 
+import { withSessionRoute } from "../../../helpers/ironSession";
+
 const handler = nc({
   attachParams: true,
   onError: (err, req, res, next) => {
@@ -13,6 +15,8 @@ const handler = nc({
     res.status(404).end("Page is not found");
   },
 });
+
+
 
 handler.post("/api/tank/new", (req, res) => {
   const { name, size, type, location, dateStarted } = req.body;
@@ -38,6 +42,9 @@ handler.get("/api/tank/all", (req, res) => {
 });
 
 handler.get("/api/tank/:id", (req, res) => {
+  console.log("here")
+  console.log(req.session)
+  return res.send(req.session.user)
   const { id } = req.params;
   return getTankById(id).then((response) => {
     return res.send(response);
@@ -52,4 +59,4 @@ handler.get((req, res, next) => {
   res.end("This matches whatever route");
 });
 
-export default handler;
+export default withSessionRoute(handler);
