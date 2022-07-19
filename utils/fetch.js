@@ -69,11 +69,7 @@ const fetchGet = (url, headers = { "Content-Type": "application/json" }) => {
     method: "GET",
   })
     .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      return data;
-    });
+      return response;})
 };
 
 module.exports = {

@@ -2,11 +2,11 @@ import { useRouter } from "next/router";
 import Nav from "./nav";
 import Header from "./header";
 
-export default function Layout({ children }) {
+export default function Layout({ children, user }) {
   return (
     <>
       <div class="w-full h-full overflow-auto">
-        <Header />
+        <Header user={user}/>
         <div class="grid grid-cols-12 h-4/5">
           <nav class="col-span-2">
             <Nav />

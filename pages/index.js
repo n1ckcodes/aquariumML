@@ -4,8 +4,6 @@ import ToolBar from "../components/tanks/toolbar";
 import { fetchGet } from "../utils/fetch";
 import { withSessionSsr } from "../helpers/ironSession";
 
-
-
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
     console.log(req.session)
@@ -25,17 +23,20 @@ export const getServerSideProps = withSessionSsr(
      data.events = []
     return data;
   };
+  let test;
+  const session =  Object.keys(req.session).length === 0 ? test = null : test = req.session
   return {
     props: {
       tankData: combobulateData(tanks, eventData),
+      user: test
     },
   };
 })
 
-export default function Home({ tankData }) {
-  console.log(tankData)
+export default function Home({ tankData, user }) {
+  console.log(user)
   return (
-    <Layout>
+    <Layout user={user}>
       <ToolBar />
       <div>
         {tankData == undefined || tankData.length == 0 ? (

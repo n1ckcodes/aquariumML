@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-export default function Nav() {
+export default function Nav(props) {
   //TODO: see how to get rid of repition with tailwind styles
 
   const { pathname } = useRouter();
