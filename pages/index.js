@@ -3,6 +3,8 @@ import TankThumbnail from "../components/tanks/thumbnail";
 import ToolBar from "../components/tanks/toolbar";
 import { fetchGet } from "../utils/fetch";
 import { withSessionSsr } from "../helpers/ironSession";
+import LoginForm from "../components/auth/login";
+import RegistrationForm from "../components/auth/register";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -36,21 +38,9 @@ export const getServerSideProps = withSessionSsr(
 export default function Home({ tankData, user }) {
   console.log(user)
   return (
-    <Layout user={user}>
-      <ToolBar />
-      <div>
-        {tankData == undefined || tankData.length == 0 ? (
-          <div>
-            <p>Looks like you havn't added any tanks yet.</p> <br />
-          </div>
-        ) : (
-          <div class="grid mr-10">
-            {tankData.map((t) => (
-              <TankThumbnail key={t.id} {...t} />
-            ))}
-          </div>
-        )}
-      </div>
-    </Layout>
+    <>
+  <RegistrationForm />
+
+  </>
   );
 }
