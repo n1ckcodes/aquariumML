@@ -11,7 +11,10 @@ async function loginRoute(req, res) {
     admin: true,
     test: 'ok'
   };
-  await req.session.save();
-  res.redirect(`/`);
-  //res.send("Logged in");
+    await req.session.save();
+//   return res.send('invalid login'
+//   )
+
+ // res.redirect(`/auth/login`)
+  res.send("Logged in");
 }
