@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Nav from "../../nav";
+import DashboardNav from "./dashboardNav";
 
 export default function DashboardLayout({ children, user }) {
   return (
@@ -8,7 +9,7 @@ export default function DashboardLayout({ children, user }) {
  
         <div class="grid grid-cols-12 h-screen">
         <nav class="col-span-2 h-full bg-info">
-            <Nav class="h-2/4 col-span-12" />
+            <DashboardNav class="h-2/4 col-span-12" />
             <Nav class="h-2/4 col-span-12" />
           </nav>
           <div class="pl-10 col-span-10 mt-5 bg-white">{children}</div>

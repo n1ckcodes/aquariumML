@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-export default function Nav(props) {
+export default function DashboardNav(props) {
   //TODO: see how to get rid of repition with tailwind styles
 
   const { pathname } = useRouter();
   return (
+    
     <ul class={`border-r text-center h-full text-lg`}>
+      user section will go up here
       <Link href="/">
         <a>
           <li
