@@ -1,4 +1,5 @@
 import nc from "next-connect";
+import { createUser } from '../db/userQueries'
 const bcrypt = require('bcrypt');
 
 
@@ -22,12 +23,12 @@ handler.post("/api/auth/register", async (req, res) => {
   const { username, password, email } = req.body;
 console.log('here')
   const saltRounds = 10;
-  await bcrypt.hash(password, saltRounds).then(function(hash) {
-    console.log(hash)
+  const pwhash = await bcrypt.hash(password, saltRounds).then(function(hash) {
+    return hash;
     // Store hash in your password DB.
 });
-  return createUser(name, size, type, location, dateStarted).then(() => {
-    return res.status(201).send("Tank added successfully");
+  return createUser(email, username, pwhash).then(() => {
+    return res.status(201).send("Registered successfully");
   });
 });
 
