@@ -7,6 +7,18 @@ const createUser = (email, username, pwhash) => {
   );
 };
 
+const getUserByUsername = (username) => {
+    try {
+      return db.one(
+        `SELECT * from aqml."user" WHERE "username" = $1`,
+        [username]
+      );
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
 module.exports = {
-  createUser
+  createUser,
+  getUserByUsername
 };
