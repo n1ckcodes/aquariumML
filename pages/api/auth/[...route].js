@@ -39,14 +39,12 @@ handler.post("/api/auth/login", async (req, res) => {
       username: user.username,
     };
     await req.session.save();
-    return res.sendStatus(200);
-  }
-  else {
-    
+    return res.statusCode(200);
+  } else {
+    return res.status(401).end("Invalid username or password");
   }
 
   console.log(req.session.user);
-
 });
 
 export default withSessionRoute(handler);
