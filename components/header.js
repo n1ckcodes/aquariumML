@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 export default function Header(props) {
+    console.log(props)
   return (
     <>
       <Link href="/">

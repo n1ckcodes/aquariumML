@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Layout from "../../components/layout";
 import { withSessionSsr } from "../../helpers/ironSession";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -44,6 +45,7 @@ export const getServerSideProps = withSessionSsr(
 export default function Login({ tanks }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [invalidLogin, setInvalidLogin] = useState(false)
   const router = useRouter();
   const refreshData = () => {
     router.replace(router.asPath);
@@ -51,8 +53,8 @@ export default function Login({ tanks }) {
   const submit = () => {
     axios
       .post("/api/auth/login", {
-        firstName: "Fred",
-        lastName: "Flintstone",
+        username: username,
+        password: password
       })
       .then(function (response) {
         console.log(response);
@@ -65,12 +67,14 @@ export default function Login({ tanks }) {
         // console.log(response)
       })
       .catch(function (error) {
-        console.log(error);
+        if (error.response.status == 401){
+            setInvalidLogin(true)
+        }
       });
   };
 
   return (
-    <>
+    <Layout>
       <div class="form-control w-full max-w-xs">
         <label class="label">
           <span class="label-text">Username</span>
@@ -93,7 +97,8 @@ export default function Login({ tanks }) {
         />
         <label class="label"></label>
       </div>
+      {invalidLogin ? <p style={{color:"red"}}>Invalid username or password</p> : <></>}
       <button class="btn"  onClick={(e) => submit()}>Login</button>
-    </>
+    </Layout>
   );
 }

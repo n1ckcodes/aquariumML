@@ -26,11 +26,12 @@ export const getServerSideProps = withSessionSsr(
     return data;
   };
   let test;
-  const session =  Object.keys(req.session).length === 0 ? test = null : test = req.session
+  console.log(req.session.user)
+  const session =  req.session.user == undefined ? test = null : test = req.session
   return {
     props: {
       tankData: combobulateData(tanks, eventData),
-      user: test
+      user: req.session.user || null
     },
   };
 })
@@ -39,7 +40,7 @@ export default function Home({ tankData, user }) {
   console.log(user)
   return (
     <>
-  <RegistrationForm />
+  <Layout user={user} />
 
   </>
   );

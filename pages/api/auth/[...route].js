@@ -39,7 +39,7 @@ handler.post("/api/auth/login", async (req, res) => {
       username: user.username,
     };
     await req.session.save();
-    return res.statusCode(200);
+    return res.status(200).end("Logged in")
   } else {
     return res.status(401).end("Invalid username or password");
   }
