@@ -6,13 +6,12 @@ export default function Header(props) {
     <>
       <Link href="/">
         <a>
-          <div class="w-full h-16 bg-black text-white flex items-center">
             AquariumML
-          </div>
+         
         </a>
       </Link>
       {!props.user ? (
-        <span class="float-right">
+        <span class="float-right inline-block">
           <Link href="/auth/login">
             <a>Login</a>
           </Link>
