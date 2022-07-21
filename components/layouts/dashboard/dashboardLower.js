@@ -5,7 +5,7 @@ export default function Nav(props) {
 
   const { pathname } = useRouter();
   return (
-    <ul class={`border-r text-center text-lg cols-12`}>
+    <ul class={`border-r text-center h-full text-lg`}>
       <Link href="/">
         <a>
           <li
