@@ -11,7 +11,7 @@ export const getServerSideProps = withSessionSsr(
       return {
         redirect: {
           permanent: false,
-          destination: "/",
+          destination: "/dashboard/home",
         },
       };
     }

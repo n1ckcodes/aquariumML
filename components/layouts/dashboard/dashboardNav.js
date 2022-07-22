@@ -1,55 +1,101 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import AppBanner from "./appBanner";
+import Image from "next/image";
+import AquariumIcon from "../../../public/images/aquariumMenuIcon.svg";
+import FishIcon from '../../../public/images/fish.svg'
+import CalendarIcon from '../../../public/images/calendar.svg'
 export default function DashboardNav(props) {
   //TODO: see how to get rid of repition with tailwind styles
 
   const { pathname } = useRouter();
   return (
-    
-    <ul class={`border-r text-center h-full text-lg`}>
-      user section will go up here
-      <Link href="/">
+    <ul class={`border-r text-center h-full bg-neutral text-white text-lg`}>
+      <Link href="/dashboard/home">
         <a>
-          <li
-            class={`h-20 flex justify-center items-center hover:bg-teal-800   ${
-              pathname == "/" ? "bg-teal-700" : null
-            }`}
-          >
-            Home
+          <li class={`h-16 flex justify-center items-center`}>
+            <span
+              class={`hover:text-teal-800 text-2xl  ${
+                pathname == "/dashboard/home" ? "text-teal-700" : null
+              }`}
+            >
+              Home
+            </span>
+          </li>
+        </a>
+      </Link>
+      <Link href="/dashboard/home">
+        <a>
+          <li class={`h-16 flex justify-center items-center`}>
+            <span
+              class={`hover:text-teal-800 text-2xl inline-block  ${
+                pathname == "/dashboard/23432" ? "text-teal-700" : null
+              }`}
+            >
+              <Image
+                class="inline-block"
+                alt="Mountains"
+                src={AquariumIcon}
+                layout="responsive"
+                width={700}
+                height={475}
+              />{" "}
+              Tanks
+            </span>
           </li>
         </a>
       </Link>
 
-      <Link href="#">
+      <Link href="/dashboard/home">
         <a>
-          <li
-            class={`h-20 flex justify-center items-center hover:bg-teal-800   ${
-              pathname == "/calendar" ? "bg-teal-700" : null
-            }`}
-          >
-            Maintenance
+          <li class={`h-16 flex justify-center items-center`}>
+            <span
+              class={`hover:text-teal-800  text-2xl  ${
+                pathname == "/dashboard/414" ? "text-teal-700" : null
+              }`}
+            >
+              Maintenance
+            </span>
           </li>
         </a>
       </Link>
-      <Link href="#">
+      <Link href="/dashboard/home">
         <a>
-          <li
-            class={`h-20 flex justify-center items-center hover:bg-teal-800   ${
-              pathname == "/calendar" ? "bg-teal-700" : null
-            }`}
-          >
-            Calendar
+          <li class={`h-16 flex justify-center items-center`}>
+            <span
+              class={`hover:text-teal-800 text-2xl   ${
+                pathname == "/dashboard/23423" ? "text-teal-700" : null
+              }`}
+            >      <Image
+            class="inline-block"
+            alt="Mountains"
+            src={FishIcon}
+            layout="responsive"
+            width={700}
+            height={475}
+          />{" "}
+              Fish
+            </span>
           </li>
         </a>
       </Link>
-      <Link href="/stats" disabled>
+      <Link href="/dashboard/home">
         <a>
-          <li
-            class={`h-20 flex justify-center items-center hover:bg-teal-800   ${
-              pathname == "/stats" ? "bg-teal-700" : null
-            }`}
-          >
-            Stats
+          <li class={`h-16 flex justify-center items-center`}>
+            <span
+              class={`hover:text-teal-800 text-2xl   ${
+                pathname == "/dashboard/32424" ? "text-teal-700" : null
+              }`}
+            >  <Image
+            class="inline-block"
+            alt="Mountains"
+            src={CalendarIcon}
+            layout="responsive"
+            width={700}
+            height={475}
+          />{" "}
+              Calendar
+            </span>
           </li>
         </a>
       </Link>

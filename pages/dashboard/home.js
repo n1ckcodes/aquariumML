@@ -39,11 +39,7 @@ export default function DashboardHome({  }) {
 
   return (
     <DashboardLayout>
-      <Link href="/tank">
-        <a>
-          <div class="btn btn-wide btn-outlin">Go Back</div>
-        </a>
-      </Link>fdsaf
+      <div className="max-h-full">This is the home page for a logged in user</div>
     </DashboardLayout>
   );
 }
