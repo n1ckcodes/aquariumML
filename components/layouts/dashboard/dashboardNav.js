@@ -12,7 +12,8 @@ export default function DashboardNav(props) {
   return (
     <ul class={`border-r text-center h-full bg-neutral text-white text-lg`}>
       <Link href="/dashboard/home">
-        <a>
+        <a >
+          <div  className='border-solid border  pt-5 pb-5'>
           <li class={`h-16 flex justify-center items-center`}>
             <span
               class={`hover:text-teal-800 text-2xl  ${
@@ -22,10 +23,12 @@ export default function DashboardNav(props) {
               Home
             </span>
           </li>
+          </div>
         </a>
       </Link>
       <Link href="/dashboard/home">
         <a>
+        <div  className='border-solid border pt-5 pb-5'>
           <li class={`h-16 flex justify-center items-center`}>
             <span
               class={`hover:text-teal-800 text-2xl inline-block  ${
@@ -43,11 +46,13 @@ export default function DashboardNav(props) {
               Tanks
             </span>
           </li>
+          </div>
         </a>
       </Link>
 
       <Link href="/dashboard/home">
         <a>
+        <div  className='border-solid border pt-5 pb-5'>
           <li class={`h-16 flex justify-center items-center`}>
             <span
               class={`hover:text-teal-800  text-2xl  ${
@@ -57,10 +62,12 @@ export default function DashboardNav(props) {
               Maintenance
             </span>
           </li>
+          </div>
         </a>
       </Link>
       <Link href="/dashboard/home">
         <a>
+        <div  className='border-solid border pt-5 pb-5'>
           <li class={`h-16 flex justify-center items-center`}>
             <span
               class={`hover:text-teal-800 text-2xl   ${
@@ -77,10 +84,12 @@ export default function DashboardNav(props) {
               Fish
             </span>
           </li>
+          </div>
         </a>
       </Link>
       <Link href="/dashboard/home">
         <a>
+        <div  className='border-solid border pt-5 pb-5'>
           <li class={`h-16 flex justify-center items-center`}>
             <span
               class={`hover:text-teal-800 text-2xl   ${
@@ -97,6 +106,7 @@ export default function DashboardNav(props) {
               Calendar
             </span>
           </li>
+          </div>
         </a>
       </Link>
     </ul>
