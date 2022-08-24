@@ -1,7 +1,7 @@
 import nc from "next-connect";
 import { withSessionRoute } from "../../../helpers/ironSession";
 import { createUser, getUserByUsername } from "../db/userQueries";
-const { validate } = require('jsonschema');
+const { validate } = require("jsonschema");
 const bcrypt = require("bcrypt");
 
 const handler = nc({
@@ -17,26 +17,20 @@ const handler = nc({
 });
 
 handler.post("/api/auth/register", async (req, res) => {
-
   var registrationScheme = {
-    "username": "",
-    "type": "object",
-    "properties": {
-      "username": {"type": "string"},
-      "password": {"type": "string"},
-      "email": {"type": "string", "format": "email"}
+    username: "",
+    type: "object",
+    properties: {
+      username: { type: "string" },
+      password: { type: "string" },
+      email: { type: "string", format: "email" },
     },
-    "required": ["username", "email", "password"]
+    required: ["username", "email", "password"],
   };
   const result = validate(req.body, registrationScheme);
-  console.log(result)
 
   if (!result.valid) {
-    return res.json(result.errors)
-    console.log(result.errors)
-    // pass the validation errors to the error handler
-    //  the "stack" key is generally the most useful
-    return next(result.errors.map(error => error.stack));
+    return res.status(400).json(result.errors.map((err) => err.stack));
   }
   const { username, password, email } = req.body;
   const saltRounds = 10;
