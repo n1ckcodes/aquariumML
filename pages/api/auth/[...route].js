@@ -23,14 +23,19 @@ handler.post("/api/auth/register", async (req, res) => {
   if (!result.valid) {
     return res.status(400).json(result.errors.map((err) => err.stack));
   }
+
   const { username, password, email } = req.body;
   const saltRounds = 10;
   const pwhash = await bcrypt.hash(password, saltRounds).then(function (hash) {
     return hash;
   });
-  return createUser(email, username, pwhash).then(() => {
-    return res.status(201).send("Registered successfully");
-  });
+  return createUser(email, username, pwhash)
+    .then(() => {
+      return res.status(201).send("Registered successfully");
+    })
+    .catch((e) => {
+      return res.send(e.toString());
+    });
 });
 
 handler.post("/api/auth/login", async (req, res) => {

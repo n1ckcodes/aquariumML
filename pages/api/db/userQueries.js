@@ -4,7 +4,16 @@ const createUser = (email, username, pwhash) => {
   return db.query(
     `INSERT INTO "User"("email", "username", "password") VALUES($1, $2, $3)`,
     [email, username, pwhash]
-  );
+  ).catch(e => {
+    if (e.code == 23505 && e.constraint == "user_username_un"){
+      console.log('throwing err')
+      throw new Error ('Username already in use')
+    }
+    if (e.code == 23505 && e.constraint == "user_email_un"){
+      console.log('throwing err')
+      throw new Error ('Email already in use')
+    }
+  })
 };
 
 const getUserByUsername = (username) => {
