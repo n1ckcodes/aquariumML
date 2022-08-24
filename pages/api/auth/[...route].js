@@ -1,7 +1,7 @@
 import nc from "next-connect";
 import { withSessionRoute } from "../../../helpers/ironSession";
 import { createUser, getUserByUsername } from "../db/userQueries";
-import { registrationSchema } from "./constants";
+import { loginSchema, registrationSchema } from "./constants";
 const { validate } = require("jsonschema");
 const bcrypt = require("bcrypt");
 
@@ -34,6 +34,10 @@ handler.post("/api/auth/register", async (req, res) => {
 });
 
 handler.post("/api/auth/login", async (req, res) => {
+  const result = validate(req.body, loginSchema);
+  if (!result.valid) {
+    return res.status(400).json(result.errors.map((err) => err.stack));
+  }
   const { username, password } = req.body;
   return getUserByUsername(username).then(async (user) => {
     if (!user) {
