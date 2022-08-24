@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
-import Layout from "../../components/layout";
+import { useState } from "react";
 import { withSessionSsr } from "../../helpers/ironSession";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Layout from "../../components/layout";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
-
     if (req.session.user) {
       return {
         redirect: {
@@ -15,41 +14,41 @@ export const getServerSideProps = withSessionSsr(
         },
       };
     }
+    //Next requires SSR rendered pages to return a prop object
     return {
-      props: {
-        user: req.session.user || null,
-      },
+      props: {},
     };
   }
 );
-export default function Login({ user }) {
-  console.log(user)
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [invalidLogin, setInvalidLogin] = useState(false);
+  const [loginError, setLoginError] = useState(false);
   const router = useRouter();
+
+  //Will trigger page to rerender and run the SSR logic
   const refreshData = () => {
     router.replace(router.asPath);
   };
+
   const submit = () => {
     axios
       .post("/api/auth/login", {
         username: username,
         password: password,
       })
-      .then(function (response) {
-        console.log(response);
+      .then(() => {
         refreshData();
-        //...
-
-        // const router = useRouter()
-
-        // router.reload(window.location.pathname)
-        // console.log(response)
       })
-      .catch(function (error) {
+      .catch((error) => {
         if (error.response.status == 401) {
           setInvalidLogin(true);
+          setLoginError(false);
+        }
+        else{
+          setLoginError(true);
+          setInvalidLogin(false);
         }
       });
   };
@@ -78,8 +77,13 @@ export default function Login({ user }) {
         />
         <label class="label"></label>
       </div>
+      {loginError ? (
+        <p style={{ color: "red" }}>Error logging in. Please try again.</p>
+      ) : (
+        <></>
+      )}
       {invalidLogin ? (
-        <p style={{ color: "red" }}>Invalid username or password</p>
+        <p style={{ color: "red" }}>Invalid username or password.</p>
       ) : (
         <></>
       )}
