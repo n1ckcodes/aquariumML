@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 export default function Header(props) {
-    console.log(props)
   return (
     <div class='grid grid-cols-12 col-span-12 h-20 flex'>
         <div class="col-span-11 flex pl-10">

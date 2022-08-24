@@ -7,11 +7,11 @@ const handler = nc({
   attachParams: true,
   onError: (err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).end("Something broke!");
+    res.status(500).end("Server error.");
   },
   onNoMatch: (req, res) => {
     console.log(req);
-    res.status(404).end("Page is not found");
+    res.status(404).end("Page not found.");
   },
 });
 
@@ -28,7 +28,7 @@ handler.post("/api/auth/register", async (req, res) => {
 
 handler.post("/api/auth/login", async (req, res) => {
   const { username, password } = req.body;
- return getUserByUsername(username).then(async (user) => {
+  return getUserByUsername(username).then(async (user) => {
     if (!user) {
       return res.status(401).end("Invalid username or password");
     } else {
@@ -40,17 +40,11 @@ handler.post("/api/auth/login", async (req, res) => {
         };
         await req.session.save();
         return res.status(200).end("Logged in");
-    } else {
-      return res.status(401).end("Invalid username or password");
-    }}
+      } else {
+        return res.status(401).end("Invalid username or password");
+      }
+    }
   });
-
-
-
-  
- 
-
-  console.log(req.session.user);
 });
 
 export default withSessionRoute(handler);
