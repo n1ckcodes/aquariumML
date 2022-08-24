@@ -1,5 +1,6 @@
 import { withSessionSsr } from "../../helpers/ironSession";
 import { useFormik } from "formik";
+import { useState } from "react";
 import axios from "axios";
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -19,6 +20,7 @@ export const getServerSideProps = withSessionSsr(
   }
 );
 export default function RegistrationForm({ props }) {
+  const [registrationError, setRegistrationError] = useState(false)
   const validate = (values) => {
     const errors = {};
 
@@ -59,7 +61,10 @@ export default function RegistrationForm({ props }) {
           email: email,
           username: username,
         })
-        .then(() => {
+        .then((response) => {
+          if (response.data.status === 'failure'){
+            setRegistrationError(response.data.msg)
+          }
           refreshData();
         })
         .catch((error) => {});
@@ -70,6 +75,7 @@ export default function RegistrationForm({ props }) {
     <form onSubmit={formik.handleSubmit}>
       <div class="hero min-h-screen bg-base-200">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          {registrationError && (<div>{registrationError}</div>)}
           <div class="card-body">
             <div class="form-control">
               <label class="label">
