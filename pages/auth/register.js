@@ -1,12 +1,28 @@
-import { useState } from "react";
-import axios from "axios";
+import { withSessionSsr } from "../../helpers/ironSession";
 import { useFormik } from "formik";
-
-export default function RegistrationForm(props) {
+import axios from "axios"
+export const getServerSideProps = withSessionSsr(
+  async function getServerSideProps({ req }) {
+    console.log("rendering via ssr");
+    // if (req.session.user) {
+    //   return {
+    //     redirect: {
+    //       permanent: false,
+    //       destination: "/dashboard/home",
+    //     },
+    //   };
+    // }
+    //Next requires SSR rendered pages to return a prop object
+    return {
+      props: {},
+    };
+  }
+);
+export default function RegistrationForm({ props }) {
   const validate = (values) => {
     const errors = {};
 
-    console.log(values)
+    console.log(values);
     if (!values.email) {
       errors.email = "Required";
     } else if (
@@ -15,10 +31,14 @@ export default function RegistrationForm(props) {
       errors.email = "Invalid email address";
     }
     if (!values.password) {
-        errors.password = "Required";
+      errors.password = "Required";
     }
     if (values.password != values.passwordConfirmation) {
-        errors.passwordConfirmation = "Passwords do not match";
+      errors.passwordConfirmation = "Passwords do not match";
+    }
+
+    if (!values.username) {
+      errors.username = "Required";
     }
     return errors;
   };
@@ -28,10 +48,23 @@ export default function RegistrationForm(props) {
       email: "",
       password: "",
       passwordConfirmation: "",
+      username: ""
     },
     validate,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      const {username, password, email } = values
+      axios
+      .post("/api/auth/register", {
+        username: username,
+        password: password,
+        email: email,
+        username: username
+      })
+      .then(() => {
+        refreshData();
+      })
+      .catch((error) => {
+      })
     },
   });
 
@@ -40,6 +73,22 @@ export default function RegistrationForm(props) {
       <div class="hero min-h-screen bg-base-200">
         <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div class="card-body">
+          <div class="form-control">
+              <label class="label">
+                <span class="label-text">Username</span>
+              </label>
+              <input
+                type="text"
+                id="text"
+                name="username"
+                class="input input-bordered"
+                onChange={formik.handleChange}
+                value={formik.values.username}
+              />
+              {formik.touched.username && formik.errors.username ? (
+                <div style={{ color: "red" }}>{formik.errors.username}</div>
+              ) : null}
+            </div>
             <div class="form-control">
               <label class="label">
                 <span class="label-text">Email</span>
@@ -84,7 +133,8 @@ export default function RegistrationForm(props) {
                 onChange={formik.handleChange}
                 value={formik.values.passwordConfirmation}
               />
-              {formik.touched.passwordConfirmation && formik.errors.passwordConfirmation  ? (
+              {formik.touched.passwordConfirmation &&
+              formik.errors.passwordConfirmation ? (
                 <div style={{ color: "red" }}>
                   {formik.errors.passwordConfirmation}
                 </div>

@@ -16,6 +16,7 @@ const handler = nc({
 });
 
 handler.post("/api/auth/register", async (req, res) => {
+  console.log(req.body)
   const { username, password, email } = req.body;
   const saltRounds = 10;
   const pwhash = await bcrypt.hash(password, saltRounds).then(function (hash) {
