@@ -1,12 +1,13 @@
 import DashboardNav from "./dashboardNav";
 import Header from '../../header'
 export default function DashboardLayout({ children, user }) {
+  console.log(user)
   return (
     <>
       <div class="w-full h-full overflow-auto">
  
         <div class="grid grid-cols-12 h-full">
-          <Header class="row col-span-12 h-screen" />
+          <Header user={user} class="row col-span-12 h-screen" />
         <nav class="col-span-1 h-full  bg-info">
             <DashboardNav />
           </nav>

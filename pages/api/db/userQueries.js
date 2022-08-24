@@ -8,17 +8,19 @@ const createUser = (email, username, pwhash) => {
 };
 
 const getUserByUsername = (username) => {
-    try {
-      return db.one(
-        `SELECT * from aqml."user" WHERE "username" = $1`,
-        [username]
-      );
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  return db
+    .one(`SELECT * from aqml."user" WHERE "username" = $1`, [username])
+    .catch((e) => {
+      console.log(e)
+      if (e.received == 0) {
+        return false;
+      } else {
+        throw new Error("Login error. Please try again.");
+      }
+    });
+};
 
 module.exports = {
   createUser,
-  getUserByUsername
+  getUserByUsername,
 };

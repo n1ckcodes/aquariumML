@@ -1,8 +1,7 @@
 import nc from "next-connect";
+import { withSessionRoute } from "../../../helpers/ironSession";
 import { createUser, getUserByUsername } from "../db/userQueries";
 const bcrypt = require("bcrypt");
-
-import { withSessionRoute } from "../../../helpers/ironSession";
 
 const handler = nc({
   attachParams: true,
@@ -29,20 +28,27 @@ handler.post("/api/auth/register", async (req, res) => {
 
 handler.post("/api/auth/login", async (req, res) => {
   const { username, password } = req.body;
-  const user = await getUserByUsername(username);
+ return getUserByUsername(username).then(async (user) => {
+    if (!user) {
+      return res.status(401).end("Invalid username or password");
+    } else {
+      const match = await bcrypt.compare(password, user.password);
+      if (match) {
+        req.session.user = {
+          uid: user.user_id,
+          username: user.username,
+        };
+        await req.session.save();
+        return res.status(200).end("Logged in");
+    } else {
+      return res.status(401).end("Invalid username or password");
+    }}
+  });
 
-  const match = await bcrypt.compare(password, user.password);
 
-  if (match) {
-    req.session.user = {
-      uid: user.user_id,
-      username: user.username,
-    };
-    await req.session.save();
-    return res.status(200).end("Logged in")
-  } else {
-    return res.status(401).end("Invalid username or password");
-  }
+
+  
+ 
 
   console.log(req.session.user);
 });

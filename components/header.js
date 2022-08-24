@@ -13,14 +13,14 @@ export default function Header(props) {
       </div>
       {!props.user ? (
         <div class="flex">
-          <Link href="/api/auth/logout">
-            <a class="flex items-center justify-end">Logout</a>
+          <Link href="/auth/login">
+            <a class="flex items-center justify-end">Login</a>
           </Link>
           </div>
       ) : (
         <span class="float-right">
-          <Link href="/api/auth/login">
-            <a>Login</a>
+          <Link href="/api/auth/logout">
+            <a>Logout</a>
           </Link>
         </span>
       )}{" "}
