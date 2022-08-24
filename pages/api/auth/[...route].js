@@ -1,6 +1,7 @@
 import nc from "next-connect";
 import { withSessionRoute } from "../../../helpers/ironSession";
 import { createUser, getUserByUsername } from "../db/userQueries";
+import { registrationSchema } from "./constants";
 const { validate } = require("jsonschema");
 const bcrypt = require("bcrypt");
 
@@ -17,17 +18,7 @@ const handler = nc({
 });
 
 handler.post("/api/auth/register", async (req, res) => {
-  var registrationScheme = {
-    username: "",
-    type: "object",
-    properties: {
-      username: { type: "string" },
-      password: { type: "string" },
-      email: { type: "string", format: "email" },
-    },
-    required: ["username", "email", "password"],
-  };
-  const result = validate(req.body, registrationScheme);
+  const result = validate(req.body, registrationSchema);
 
   if (!result.valid) {
     return res.status(400).json(result.errors.map((err) => err.stack));
