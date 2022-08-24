@@ -26,15 +26,27 @@ handler.post("/api/auth/register", async (req, res) => {
 
   const { username, password, email } = req.body;
   const saltRounds = 10;
-  const pwhash = await bcrypt.hash(password, saltRounds).then(function (hash) {
+  const pwhash = await bcrypt.hash(password, saltRounds).then((hash) => {
     return hash;
   });
+
   return createUser(email, username, pwhash)
-    .then(() => {
-      return res.status(201).send("Registered successfully");
+    .then((response) => {
+      if (response === true) {
+        return res.status(201).send({
+          status: "ok",
+          msg: "Registered successfully",
+        });
+      } else {
+        return res.status(200).send({
+          status: "failure",
+          msg: response,
+        });
+      }
     })
     .catch((e) => {
-      return res.send(e.toString());
+      console.log(e)
+      return res.status(500).send("Registration error please try again.");
     });
 });
 
