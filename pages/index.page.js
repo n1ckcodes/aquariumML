@@ -36,7 +36,9 @@ export default function Home({ user }) {
       return (
         <div>
           <Layout user={user}>
-            <LoginRegistrationContainer />
+          <div class="grid grid-cols-3 gap-4">
+            <LoginRegistrationContainer class="col-span-2"/>
+            </div>
           </Layout>
         </div>
       );
