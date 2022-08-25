@@ -2,25 +2,20 @@ import { withSessionSsr } from "../../helpers/ironSession";
 import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
+import { render } from "react-dom";
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
-    console.log("rendering via ssr");
-    // if (req.session.user) {
-    //   return {
-    //     redirect: {
-    //       permanent: false,
-    //       destination: "/dashboard/home",
-    //     },
-    //   };
-    // }
     //Next requires SSR rendered pages to return a prop object
     return {
-      props: {},
+      props: {
+        loggedIn: req.session.user == undefined ? false : true,
+      },
     };
   }
 );
-export default function RegistrationForm({ props }) {
-  const [registrationError, setRegistrationError] = useState(false)
+export default function RegistrationForm({ loggedIn }) {
+  const [registrationError, setRegistrationError] = useState(false);
+  const [lgged] = useState({ loggedIn });
   const validate = (values) => {
     const errors = {};
 
@@ -62,8 +57,8 @@ export default function RegistrationForm({ props }) {
           username: username,
         })
         .then((response) => {
-          if (response.data.status === 'failure'){
-            setRegistrationError(response.data.msg)
+          if (response.data.status === "failure") {
+            setRegistrationError(response.data.msg);
           }
           refreshData();
         })
@@ -71,85 +66,93 @@ export default function RegistrationForm({ props }) {
     },
   });
 
-  return (
-    <form onSubmit={formik.handleSubmit}>
-      <div class="hero min-h-screen bg-base-200">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          {registrationError && (<div>{registrationError}</div>)}
-          <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Username</span>
-              </label>
-              <input
-                type="text"
-                id="text"
-                name="username"
-                class="input input-bordered"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-              />
-              {formik.touched.username && formik.errors.username ? (
-                <div style={{ color: "red" }}>{formik.errors.username}</div>
-              ) : null}
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                class="input input-bordered"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-              />
-              {formik.touched.email && formik.errors.email ? (
-                <div style={{ color: "red" }}>{formik.errors.email}</div>
-              ) : null}
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                class="input input-bordered"
-                id="password"
-                name="password"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-              {formik.touched.password && formik.errors.password ? (
-                <div style={{ color: "red" }}>{formik.errors.password}</div>
-              ) : null}
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Confirm Password</span>
-              </label>
-              <input
-                type="password"
-                class="input input-bordered"
-                id="passwordConfirmation"
-                name="passwordConfirmation"
-                onChange={formik.handleChange}
-                value={formik.values.passwordConfirmation}
-              />
-              {formik.touched.passwordConfirmation &&
-              formik.errors.passwordConfirmation ? (
-                <div style={{ color: "red" }}>
-                  {formik.errors.passwordConfirmation}
+  const renderController = () => {
+    if (loggedIn) {
+      return <div>You are already logged in.</div>;
+    } else {
+      return (
+        <form onSubmit={formik.handleSubmit}>
+          <div class="hero min-h-screen bg-base-200">
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+              {registrationError && <div>{registrationError}</div>}
+              <div class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Username</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="text"
+                    name="username"
+                    class="input input-bordered"
+                    onChange={formik.handleChange}
+                    value={formik.values.username}
+                  />
+                  {formik.touched.username && formik.errors.username ? (
+                    <div style={{ color: "red" }}>{formik.errors.username}</div>
+                  ) : null}
                 </div>
-              ) : null}
-            </div>
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">Register</button>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Email</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    class="input input-bordered"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                  />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div style={{ color: "red" }}>{formik.errors.email}</div>
+                  ) : null}
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    class="input input-bordered"
+                    id="password"
+                    name="password"
+                    onChange={formik.handleChange}
+                    value={formik.values.password}
+                  />
+                  {formik.touched.password && formik.errors.password ? (
+                    <div style={{ color: "red" }}>{formik.errors.password}</div>
+                  ) : null}
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Confirm Password</span>
+                  </label>
+                  <input
+                    type="password"
+                    class="input input-bordered"
+                    id="passwordConfirmation"
+                    name="passwordConfirmation"
+                    onChange={formik.handleChange}
+                    value={formik.values.passwordConfirmation}
+                  />
+                  {formik.touched.passwordConfirmation &&
+                  formik.errors.passwordConfirmation ? (
+                    <div style={{ color: "red" }}>
+                      {formik.errors.passwordConfirmation}
+                    </div>
+                  ) : null}
+                </div>
+                <div class="form-control mt-6">
+                  <button class="btn btn-primary">Register</button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </form>
-  );
+        </form>
+      );
+    }
+  };
+
+  return <div>{renderController()}</div>;
 }

@@ -13,8 +13,12 @@ const createUser = (email, username, pwhash) => {
       if (e.code == 23505 && e.constraint == "user_username_un") {
         return "Username already in use";
       }
-      if (e.code == 23505 && e.constraint == "user_email_un") {
+      else if (e.code == 23505 && e.constraint == "user_email_un") {
         return "Email already in use";
+      }
+      else {
+        console.log(e)
+        throw new Error('Unknown error occurred during registration. Please try again.')
       }
     });
 };
