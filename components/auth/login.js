@@ -37,25 +37,25 @@ export default function LoginForm() {
   };
 
   return (
-    <>
-      <div class="form-control w-full max-w-xs">
+    <div class="w-full">
+      <div class="form-control w-full">
         <label class="label">
           <span class="label-text">Username</span>
         </label>
         <input
           type="text"
-          class="input input-bordered w-full max-w-xs"
+          class="input input-bordered w-full"
           onChange={(e) => setUsername(e.target.value)}
         />
         <label class="label"></label>
       </div>
-      <div class="form-control w-full max-w-xs">
+      <div class="form-control w-full">
         <label class="label">
           <span class="label-text">Password</span>
         </label>
         <input
           type="password"
-          class="input input-bordered w-full max-w-xs"
+          class="input input-bordered w-full"
           onChange={(e) => setPassword(e.target.value)}
         />
         <label class="label"></label>
@@ -73,6 +73,6 @@ export default function LoginForm() {
       <button class="btn" onClick={(e) => submit()}>
         Login
       </button>
-      </>
+      </div>
   );
 }

@@ -15,7 +15,7 @@ export default function Layout({ children, user }) {
           ) : (
             <></>
           )}
-          <div class="pl-10 col-span-10 mt-5">{children}</div>
+          <div class="p-10 col-span-12 mt-5">{children}</div>
         </div>
       </div>
       <footer class="footer items-center p-4 bg-neutral text-neutral-content">
