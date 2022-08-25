@@ -36,9 +36,18 @@ export default function Home({ user }) {
       return (
         <div>
           <Layout user={user}>
-          <div class="grid grid-cols-4">
-            <div class='col-span-3'>hello</div>
-            <LoginRegistrationContainer />
+            <div class="grid grid-cols-4">
+              <div class="col-span-3">
+                <h1 class="text-5xl underline">Aquarium Maintenance Log</h1>
+                <p class="pt-5">Aquarium maintenance logging made easy.</p>
+
+                <br /><br /><br />
+                <ul>
+                  <li>Add aquariums</li>
+                  <li>Record water changes</li>
+                </ul>
+              </div>
+              <LoginRegistrationContainer />
             </div>
           </Layout>
         </div>
