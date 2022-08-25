@@ -9,8 +9,8 @@ export default function LoginRegistrationContainer() {
         <a
           className={
             activeTab == "tab-1"
-              ? "tab tab-lifted tab-active"
-              : "tab tab-lifted"
+              ? "tab tab-lifted tab-active w-1/2 text-lg"
+              : "tab tab-lifted w-1/2"
           }
           id="tab-1"
           onClick={() => setActiveTab("tab-1")}
@@ -20,7 +20,7 @@ export default function LoginRegistrationContainer() {
         <a
           className={
             activeTab == "tab-2"
-              ? "tab tab-lifted tab-active"
+              ? "tab tab-lifted tab-active text-lg"
               : "tab tab-lifted"
           }
           id="tab-2"
