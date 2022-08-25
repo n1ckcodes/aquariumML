@@ -1,9 +1,13 @@
-import Layout from "../components/layout";
 import { withSessionSsr } from "../helpers/ironSession";
+import { useRouter } from "next/router";
 import DashboardLayout from "../components/layouts/dashboard/dashboard";
+import Layout from "../components/layout";
+import LoginRegistrationContainer from "../components/auth/loginRegistrationContainer";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
+    console.log("rerendering");
+    console.log(req.session.user);
     return {
       props: {
         user: req.session.user || null,
@@ -13,11 +17,30 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function Home({ user }) {
-  console.log(user)
-  console.log(user);
-  return (
-    <html data-theme="night">
-      {user ? <DashboardLayout user={user} /> : <Layout user={user} />}
-    </html>
-  );
+  const router = useRouter();
+
+  //Will trigger page to rerender and run the SSR logic
+  function refreshData() {
+    console.log("refresh called");
+    router.replace(router.asPath);
+  }
+
+  const renderController = () => {
+    if (user) {
+      return (
+        <div>
+          <DashboardLayout user={user} />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Layout user={user}>
+            <LoginRegistrationContainer />
+          </Layout>
+        </div>
+      );
+    }
+  };
+  return <html data-theme="night">{renderController()}</html>;
 }

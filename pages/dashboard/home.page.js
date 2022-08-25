@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import Layout from "../../components/layout";
 import { fetchGet } from "../../utils/fetch";
-import MaintenanceModal from "../../components/modals/addMaintenance";
 import ConfirmDelete from "../../components/modals/confirmDelete";
 import DashboardLayout from "../../components/layouts/dashboard/dashboard";
 
@@ -24,9 +23,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-const deleteEventById = (id) => {
-  <ConfirmDelete />;
-};
+
 
 export default function DashboardHome({  }) {
   useEffect(() => {});
