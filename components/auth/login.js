@@ -21,15 +21,14 @@ export default function LoginForm() {
         password: password,
       })
       .then(() => {
-        refreshData()
+        refreshData();
       })
       .catch((error) => {
-        console.log(error)
+        console.log(error);
         if (error.response.status == 401) {
           setInvalidLogin(true);
           setLoginError(false);
-        }
-        else{
+        } else {
           setLoginError(true);
           setInvalidLogin(false);
         }
@@ -70,9 +69,11 @@ export default function LoginForm() {
       ) : (
         <></>
       )}
-      <button class="btn" onClick={(e) => submit()}>
-        Login
-      </button>
+      <div class="form-control mt-6">
+        <button class="btn btn-primary" onClick={(e) => submit()}>
+          Login
+        </button>
       </div>
+    </div>
   );
 }
