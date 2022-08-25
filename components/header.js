@@ -10,19 +10,6 @@ export default function Header(props) {
         </a>
       </Link>
       </div>
-      {!props.user ? (
-        <div class="flex">
-          <Link href="/auth/login">
-            <a class="flex items-center justify-end">Login</a>
-          </Link>
-          </div>
-      ) : (
-        <span class="float-right">
-          <Link href="/api/auth/logout">
-            <a>Logout</a>
-          </Link>
-        </span>
-      )}{" "}
     </div>
   );
 }

@@ -38,7 +38,7 @@ export default function LoginForm() {
   };
 
   return (
-    <Layout>
+    <>
       <div class="form-control w-full max-w-xs">
         <label class="label">
           <span class="label-text">Username</span>
@@ -74,6 +74,6 @@ export default function LoginForm() {
       <button class="btn" onClick={(e) => submit()}>
         Login
       </button>
-    </Layout>
+      </>
   );
 }
