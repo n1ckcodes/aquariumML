@@ -6,8 +6,14 @@ import LoginRegistrationContainer from "../components/auth/loginRegistrationCont
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
-    console.log("rerendering");
-    console.log(req.session.user);
+    if (req.session.user) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/dashboard/home",
+        },
+      };
+    }
     return {
       props: {
         user: req.session.user || null,
