@@ -38,10 +38,9 @@ export default function Home({ user }) {
           <Layout user={user}>
             <div class="grid grid-cols-4">
               <div class="col-span-3 pl-10 pr-10">
-                <h1 class="text-5xl underline text-center">Aquarium Maintenance Log</h1>
-                <br />
 
-                <h1 class="text-1xl  text-center">
+
+                <h1 class="text-5xl  text-center">
                   The <span class="font-bold underline">only</span> tool you will ever need to record all your aquarium
                   maintenance.
                 </h1>
