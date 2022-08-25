@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Layout from "../../components/layout";
 
 export default function LoginForm() {
   const [username, setUsername] = useState("");
@@ -21,7 +20,7 @@ export default function LoginForm() {
         username: username,
         password: password,
       })
-      .then((res) => {
+      .then(() => {
         refreshData()
       })
       .catch((error) => {

@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import Layout from "../../components/layout";
 import { fetchGet } from "../../utils/fetch";
-import ConfirmDelete from "../../components/modals/confirmDelete";
 import DashboardLayout from "../../components/layouts/dashboard/dashboard";
 
 export async function getServerSideProps(context) {

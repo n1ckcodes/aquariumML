@@ -56,8 +56,7 @@ export default function RegistrationForm(props) {
   });
   return (
     <form onSubmit={formik.handleSubmit}>
-      <div class="hero min-h-screen bg-base-200">
-        <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div class="card flex-shrink-0 w-full max-w-sm bg-base-100">
           {registrationError && <div>{registrationError}</div>}
           <div class="card-body">
             <div class="form-control">
@@ -132,7 +131,6 @@ export default function RegistrationForm(props) {
             </div>
           </div>
         </div>
-      </div>
     </form>
   );
 }

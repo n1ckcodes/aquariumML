@@ -16,4 +16,12 @@ body,
 html{
   font-family: 'Barlow Condensed', sans-serif;
 }
+@layer components {
+  .card-body {
+    @apply p-0
+  }
+}
 
+.card-body{
+  padding:none !important;
+}
