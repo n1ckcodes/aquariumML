@@ -20,4 +20,8 @@ html{
   .card-body {
     @apply p-0
   }
+
+  /* .tab-lifted.tab-active {
+    @apply border-white
+  } */
 }
