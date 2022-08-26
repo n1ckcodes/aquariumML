@@ -4,7 +4,7 @@ import LoginForm from "./login";
 export default function LoginRegistrationContainer() {
   const [activeTab, setActiveTab] = useState("tab-1");
   return (
-    <div className="border border-white p-5 w-full">
+    <div className="border border-white p-5">
       <div class="tabs">
         <a
           className={

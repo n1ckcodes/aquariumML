@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import DashboardLayout from "../components/layouts/dashboard/dashboard";
 import Layout from "../components/layout";
 import LoginRegistrationContainer from "../components/auth/loginRegistrationContainer";
+import Hero from '../public/images/hero2.png'
+import Image from "next/image";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -42,16 +44,23 @@ export default function Home({ user }) {
       return (
         <div>
           <Layout user={user}>
-            <div class="grid grid-cols-4">
-              <div class="col-span-3 pl-10 pr-10">
+          <div class="grid grid-rows-2 grid-flow-col">
+              <div class="row-span-2 pl-10 pr-10">
 
-
+                  <Image
+            class="inline-block"
+            alt="Mountains"
+            src={Hero}
+            layout="responsive"
+          />{" "}
                 <h1 class="text-5xl  text-center">
                   The <span class="font-bold underline">only</span> tool you will ever need to record all your aquarium
                   maintenance.
                 </h1>
               </div>
+              <div class="row-span-2 col-span-2">
               <LoginRegistrationContainer />
+              </div>
             </div>
           </Layout>
         </div>
