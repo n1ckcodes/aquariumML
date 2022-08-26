@@ -60,12 +60,12 @@ export default function LoginForm() {
         <label class="label"></label>
       </div>
       {loginError ? (
-        <p style={{ color: "red" }}>Error logging in. Please try again.</p>
+        <p style={{ color: "red", fontWeight:"bold" }}>Error logging in. Please try again.</p>
       ) : (
         <></>
       )}
       {invalidLogin ? (
-        <p style={{ color: "red" }}>Invalid username or password.</p>
+        <p style={{ color: "red", fontWeight:"bold" }}>Invalid username or password.</p>
       ) : (
         <></>
       )}

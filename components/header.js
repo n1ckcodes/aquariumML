@@ -12,7 +12,7 @@ export default function Header(props) {
       </div>
       {!props.user ? (
         <div class="flex">
-          <Link href="/auth/login">
+          <Link href="/about">
             <a class="flex items-center justify-end">About</a>
           </Link>&nbsp;&nbsp;&nbsp;&nbsp;
           <Link href="/auth/login">
