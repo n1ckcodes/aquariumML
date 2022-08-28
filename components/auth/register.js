@@ -51,13 +51,15 @@ export default function RegistrationForm(props) {
           console.log(props)
           props.refreshData();
         })
-        .catch((error) => {});
+        .catch((error) => {
+          console.log(error)
+          setRegistrationError(error.response.data)
+        });
     },
   });
   return (
     <form onSubmit={formik.handleSubmit}>
         <div class="card flex-shrink-0 w-full max-w-sm bg-base-100">
-          {registrationError && <div class="color-red">{registrationError}</div>}
           <div class="card-body">
             <div class="form-control">
               <label class="label">
@@ -126,6 +128,8 @@ export default function RegistrationForm(props) {
                 </div>
               ) : null}
             </div>
+            
+          {registrationError && <div class="text-red-400 font-bold mt-5">{registrationError}</div>}
             <div class="form-control mt-6">
               <button class="btn btn-primary">Register</button>
             </div>

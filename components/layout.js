@@ -5,7 +5,7 @@ import Header from "./header";
 export default function Layout({ children, user }) {
   return (
     <>
-      <div class="w-full h-full overflow-auto">
+      <div class="flex flex-col min-h-screen ">
         <Header user={user} />
         <div class="grid grid-cols-12 h-4/5">
           {user ? (
@@ -17,8 +17,7 @@ export default function Layout({ children, user }) {
           )}
           <div class="p-10 col-span-12 mt-5">{children}</div>
         </div>
-      </div>
-      <footer class="footer items-center p-4 bg-neutral text-neutral-content">
+        <footer class="footer items-center p-4 bg-neutral text-neutral-content mt-auto">
         <div class="items-center grid-flow-col">
           <svg
             width="36"
@@ -69,6 +68,8 @@ export default function Layout({ children, user }) {
           </a>
         </div>
       </footer>
+      </div>
+      
     </>
   );
 }
