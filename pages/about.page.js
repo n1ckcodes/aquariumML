@@ -22,7 +22,7 @@ export const getServerSideProps = withSessionSsr(
   }
 );
 
-export default function Home({ user }) {
+export default function About({ user }) {
   const router = useRouter();
 
   //Will trigger page to rerender and run the SSR logic
