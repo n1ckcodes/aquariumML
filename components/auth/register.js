@@ -10,21 +10,21 @@ export default function RegistrationForm(props) {
     const errors = {};
 
     if (!values.email) {
-      errors.email = "Required";
+      errors.email = "Email is required";
     } else if (
       !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
     ) {
       errors.email = "Invalid email address";
     }
     if (!values.password) {
-      errors.password = "Required";
+      errors.password = "Password is required";
     }
     if (values.password != values.passwordConfirmation) {
       errors.passwordConfirmation = "Passwords do not match";
     }
 
     if (!values.username) {
-      errors.username = "Required";
+      errors.username = "Username is required";
     }
     return errors;
   };
