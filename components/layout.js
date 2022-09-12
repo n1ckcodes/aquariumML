@@ -1,22 +1,25 @@
 import Nav from "./nav";
 import Header from "./header";
 import Footer from "./footer";
+import Container from "react-bootstrap/Container";
 
 export default function Layout({ children, user }) {
   return (
-    <>
     <div>
-        <Header user={user} />
-          {user ? (
-            <nav>
-              <Nav />
-            </nav>
-          ) : (
-            <></>
-          )}
-          <div>{children}</div>
-        </div>
-        <Footer />
-    </>
+      <Header user={user} />
+      <Container fluid>
+        {user ? (
+          <nav>
+            <Nav />
+          </nav>
+        ) : ( <></>
+        )}
+        <div>{children}</div>
+
+        <footer className="footer--pin">
+          <Footer />
+        </footer>
+      </Container>
+    </div>
   );
 }

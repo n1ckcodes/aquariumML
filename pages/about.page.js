@@ -35,7 +35,6 @@ export default function About({ user }) {
     
  
   return <html data-theme="night">
-    <div>
       <Layout user={user}>
    
 
@@ -107,5 +106,4 @@ Lobster spotted sweetlips. Sea coral wobbegong shark, Milk shark non Spotted swe
 Sea. Wobbegong shark blue whale gold damsel faucet snail, in snake eel sea coral grouper. Spot hogfish banded grunt, mystery snail happy flounder. Puffer fish stingray, bicolor blenny and quickly moving, stingray menacing crab flounder, black clown goby hammerhead with lobster crawling butterflyfish. In the coral threadfin hawkfish.
 
       </Layout>
-    </div>
   </html>}

@@ -18,6 +18,24 @@ html{
   height: 100vh;
 }
 
+
+
+.footer--pin {
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+
+/* Header nav  */
+
+.navbar {
+  padding: 1em;
+}
+.navbar-brand a{
+  color:white;
+  text-decoration: none;
+}
+
 .tabs-btn:hover{
   cursor: pointer;
   background:lightblue;

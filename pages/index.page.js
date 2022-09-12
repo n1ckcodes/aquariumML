@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import LoginRegistrationContainer from "../components/auth/loginRegistrationContainer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -39,7 +39,6 @@ export default function Home({ user }) {
       return <DashboardLayout user={user} />;
     } else {
       return (
-        <Container fluid>
         <Layout user={user}>
           <Row>
             <Col xs={12} sm={10}>
@@ -53,7 +52,6 @@ export default function Home({ user }) {
             </Col>
           </Row>
         </Layout>
-        </Container>
       );
     }
   };

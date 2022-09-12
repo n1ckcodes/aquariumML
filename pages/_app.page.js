@@ -1,9 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
 function App({ Component, pageProps }) {
-  return (
-        <Component {...pageProps} />
-  );
+  return <Component {...pageProps} />;
 }
 
 export default App;
