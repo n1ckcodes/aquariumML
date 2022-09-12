@@ -2,7 +2,7 @@ import { withSessionSsr } from "../helpers/ironSession";
 import { useRouter } from "next/router";
 import DashboardLayout from "../components/layouts/dashboard/dashboard";
 import Layout from "../components/layout";
-import LoginRegistrationContainer from "../components/auth/loginRegistrationContainer";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 

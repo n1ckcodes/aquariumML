@@ -7,7 +7,7 @@ export default function Layout({ children, user }) {
   return (
     <div>
       <Header user={user} />
-      <Container fluid>
+      <Container style={{background:"#gray"}}>
         {user ? (
           <nav>
             <Nav />
