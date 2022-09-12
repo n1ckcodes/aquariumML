@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import axios from "axios";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 export default function RegistrationForm(props) {
   const [registrationError, setRegistrationError] = useState(false);
@@ -48,93 +50,83 @@ export default function RegistrationForm(props) {
           if (response.data.status === "failure") {
             setRegistrationError(response.data.msg);
           }
-          console.log(props)
+          console.log(props);
           props.refreshData();
         })
         .catch((error) => {
-          console.log(error)
-          setRegistrationError(error.response.data)
+          console.log(error);
+          setRegistrationError(error.response.data);
         });
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-        <div class="card flex-shrink-0 w-full max-w-sm bg-base-100">
-          <div class="card-body">
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Username</span>
-              </label>
-              <input
-                type="text"
-                id="text"
-                name="username"
-                class="input input-bordered"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-              />
-              {formik.touched.username && formik.errors.username ? (
-                <div style={{ color: "red" }}>{formik.errors.username}</div>
-              ) : null}
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                id="email"
-                name="email"
-                class="input input-bordered"
-                onChange={formik.handleChange}
-                value={formik.values.email}
-              />
-              {formik.touched.email && formik.errors.email ? (
-                <div style={{ color: "red" }}>{formik.errors.email}</div>
-              ) : null}
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                class="input input-bordered"
-                id="password"
-                name="password"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-              />
-              {formik.touched.password && formik.errors.password ? (
-                <div style={{ color: "red" }}>{formik.errors.password}</div>
-              ) : null}
-            </div>
-            <div class="form-control">
-              <label class="label">
-                <span class="label-text">Confirm Password</span>
-              </label>
-              <input
-                type="password"
-                class="input input-bordered"
-                id="passwordConfirmation"
-                name="passwordConfirmation"
-                onChange={formik.handleChange}
-                value={formik.values.passwordConfirmation}
-              />
-              {formik.touched.passwordConfirmation &&
-              formik.errors.passwordConfirmation ? (
-                <div style={{ color: "red" }}>
-                  {formik.errors.passwordConfirmation}
-                </div>
-              ) : null}
-            </div>
-            
-          {registrationError && <div class="text-red-400 font-bold mt-5">{registrationError}</div>}
-            <div class="form-control mt-6">
-              <button class="btn btn-primary">Register</button>
-            </div>
-          </div>
-        </div>
-    </form>
+    <Form onSubmit={formik.handleSubmit}>
+      <Form.Group className="mb-3">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.username}
+          name="username"
+        />
+      </Form.Group>
+      {formik.touched.username && formik.errors.username ? (
+        <div style={{ color: "red" }}>{formik.errors.username}</div>
+      ) : null}
+      <Form.Group className="mb-3">
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          name="email"
+        />
+      </Form.Group>
+
+      {formik.touched.email && formik.errors.email ? (
+        <div style={{ color: "red" }}>{formik.errors.email}</div>
+      ) : null}
+
+      <Form.Group className="mb-3">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
+          type="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          name="password"
+        />
+      </Form.Group>
+
+      {formik.touched.password && formik.errors.password ? (
+        <div style={{ color: "red" }}>{formik.errors.password}</div>
+      ) : null}
+      <Form.Group className="mb-3">
+        <Form.Label>Confirm Password</Form.Label>
+        <Form.Control
+          type="password"
+          onChange={formik.handleChange}
+          value={formik.values.passwordConfirmation}
+          name="passwordConfirmation"
+        />
+      </Form.Group>
+
+      {formik.touched.passwordConfirmation &&
+      formik.errors.passwordConfirmation ? (
+        <div style={{ color: "red" }}>{formik.errors.passwordConfirmation}</div>
+      ) : null}
+
+      {registrationError && (
+        <div class="text-red-400 font-bold mt-5">{registrationError}</div>
+      )}
+     <div className="d-grid gap-2">
+      <Button
+        variant="secondary"
+        size="md"
+        type="submit"
+      >
+        Register
+      </Button>
+    </div>
+    </Form>
   );
 }
