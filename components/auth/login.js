@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 import axios from "axios";
 
 export default function LoginForm() {
@@ -36,44 +38,41 @@ export default function LoginForm() {
   };
 
   return (
-    <div class="w-full">
-      <div class="form-control w-full">
-        <label class="label">
-          <span class="label-text">Username</span>
-        </label>
-        <input
+
+    <Form onSubmit={(e) => e.preventDefault()}>
+      <Form.Group className="mb-3">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
           type="text"
-          class="input input-bordered w-full"
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label class="label"></label>
-      </div>
-      <div class="form-control w-full">
-        <label class="label">
-          <span class="label-text">Password</span>
-        </label>
-        <input
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>Password</Form.Label>
+        <Form.Control
           type="password"
-          class="input input-bordered w-full"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label class="label"></label>
-      </div>
+      </Form.Group>
       {loginError ? (
-        <p style={{ color: "red", fontWeight:"bold" }}>Error logging in. Please try again.</p>
+        <p style={{ color: "red", fontWeight: "bold" }}>
+          Error logging in. Please try again.
+        </p>
       ) : (
         <></>
       )}
       {invalidLogin ? (
-        <p style={{ color: "red", fontWeight:"bold" }}>Invalid username or password.</p>
+        <p style={{ color: "red", fontWeight: "bold" }}>
+          Invalid username or password.
+        </p>
       ) : (
         <></>
       )}
-      <div class="form-control mt-6">
-        <button class="btn btn-primary" onClick={(e) => submit()}>
-          Login
-        </button>
+         <div className="d-grid gap-2">
+      <Button variant="secondary" size="md" onClick={() => submit()} type="submit">
+        Login
+      </Button>
       </div>
-    </div>
+    </Form>
   );
 }

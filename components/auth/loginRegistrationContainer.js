@@ -1,36 +1,53 @@
 import { useState } from "react";
 import RegistrationForm from "./register";
 import LoginForm from "./login";
+import Row from "react-bootstrap/row";
+import Col from "react-bootstrap/Col";
 export default function LoginRegistrationContainer() {
   const [activeTab, setActiveTab] = useState("tab-1");
   return (
-    <div className="border border-white p-5">
-      <div class="tabs">
-        <a
-          className={
-            activeTab == "tab-1"
-              ? "tab tab-lifted tab-active w-1/2 text-lg"
-              : "tab tab-lifted w-1/2"
-          }
-          id="tab-1"
-          onClick={() => setActiveTab("tab-1")}
+    <div
+      style={{
+        background: "white",
+        border: "thin solid black",
+        borderRadius: "10px",
+      }}
+    >
+      <Row >
+        <div
+          class="tabs"
+          style={{
+            fontSize: "1.5em",
+            width: "100%",
+            display: "inline-block",
+            textAlign: "center",
+            padding:""
+          }}
         >
-          Login
-        </a>
-        <a
-          className={
-            activeTab == "tab-2"
-              ? "tab tab-lifted tab-active text-lg"
-              : "tab tab-lifted"
-          }
-          id="tab-2"
-          onClick={() => setActiveTab("tab-2")}
-        >
-          Register
-        </a>
-      </div>
-
+          <a id="tab-1" onClick={() => setActiveTab("tab-1")}>
+            <Col
+              xs={6}
+              style={{ display: "inline-block" }}
+              className={activeTab == 'tab-1' ? "tabs-btn-is-active" : "tabs-btn"}
+            >
+              Login
+            </Col>
+          </a>
+          <a id="tab-2" onClick={() => setActiveTab("tab-2")}>
+            <Col
+              xs={6}
+              className={activeTab == 'tab-2' ? "tabs-btn-is-active" : "tabs-btn"}
+              style={{ display: "inline-block" }}
+            >
+              Register
+            </Col>
+          </a>
+        </div>
+      </Row>
+      <hr />
+      <div style={{padding:"20px"}}>
       {activeTab == "tab-1" ? <LoginForm /> : <RegistrationForm />}
+      </div>
     </div>
   );
 }

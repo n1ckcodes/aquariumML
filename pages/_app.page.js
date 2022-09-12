@@ -1,7 +1,9 @@
-import './globals.css'
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./globals.css";
 function App({ Component, pageProps }) {
-  return <div className="w-full h-full"><Component {...pageProps} /></div>
+  return (
+        <Component {...pageProps} />
+  );
 }
 
-export default App
+export default App;

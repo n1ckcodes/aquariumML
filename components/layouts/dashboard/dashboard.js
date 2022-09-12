@@ -1,20 +1,18 @@
 import DashboardNav from "./dashboardNav";
-import Header from '../../header'
+import Header from "../../header";
 export default function DashboardLayout({ children, user }) {
-  console.log(user)
+  console.log(user);
   return (
     <>
-      <div class="w-full h-full overflow-auto">
- 
-        <div class="grid grid-cols-12 h-full">
-          <Header user={user} class="row col-span-12 h-screen" />
-        <nav class="col-span-1 h-full  bg-info">
+      <div>
+        <div>
+          <Header user={user} />
+          <nav>
             <DashboardNav />
           </nav>
-          <div class="pl-10 col-span-11 h-screen bg-white">{children}</div>
+          <div>{children}</div>
         </div>
       </div>
-    
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Nav from "./nav";
 import Header from "./header";
 import Footer from "./footer";
@@ -6,20 +5,18 @@ import Footer from "./footer";
 export default function Layout({ children, user }) {
   return (
     <>
-      <div class="flex flex-col min-h-screen ">
+    <div>
         <Header user={user} />
-        <div class="grid grid-cols-12 h-4/5">
           {user ? (
-            <nav class="col-span-2">
+            <nav>
               <Nav />
             </nav>
           ) : (
             <></>
           )}
-          <div class="p-10 col-span-12 mt-5">{children}</div>
+          <div>{children}</div>
         </div>
         <Footer />
-      </div>
     </>
   );
 }

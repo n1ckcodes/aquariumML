@@ -19,9 +19,7 @@ export async function getServerSideProps(context) {
   };
 }
 
-
-
-export default function DashboardHome({  }) {
+export default function DashboardHome({}) {
   useEffect(() => {});
   const router = useRouter();
 
@@ -32,7 +30,9 @@ export default function DashboardHome({  }) {
 
   return (
     <DashboardLayout>
-      <div className="max-h-full">This is the home page for a logged in user</div>
+      <div className="max-h-full">
+        This is the home page for a logged in user
+      </div>
     </DashboardLayout>
   );
 }

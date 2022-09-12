@@ -3,8 +3,9 @@ import { useRouter } from "next/router";
 import DashboardLayout from "../components/layouts/dashboard/dashboard";
 import Layout from "../components/layout";
 import LoginRegistrationContainer from "../components/auth/loginRegistrationContainer";
-import Hero from "../public/images/hero2.png";
-import Image from "next/image";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -35,41 +36,24 @@ export default function Home({ user }) {
 
   const renderController = () => {
     if (user) {
-      return (
-        <div>
-          <DashboardLayout user={user} />
-        </div>
-      );
+      return <DashboardLayout user={user} />;
     } else {
       return (
-        <div>
-          <Layout user={user}>
-            <div class="grid grid-rows-2 grid-flow-col">
-              <div class="row-span-2 col-span-5 pl-10 pr-10 grid grid-cols-9">
-                <div class="col-span-9">
-                                 <h1 class="text-5xl  text-center">
-                    The <span class="font-bold underline">only</span> tool you
-                    will ever need to record all your aquarium maintenance.
-                  </h1>
-                </div>
-                <div class="col-span-3">
-                  Right side
-                </div>
-                  {/* <Image
-            class="inline-block"
-            alt="Mountains"
-            src={Hero}
-            layout="responsive"
-          />{" "} */}
-
-               
-              </div>
-              <div class="row-span-2 col-span-1">
-                <LoginRegistrationContainer />
-              </div>
-            </div>
-          </Layout>
-        </div>
+        <Container fluid>
+        <Layout user={user}>
+          <Row>
+            <Col xs={12} sm={10}>
+              <h1>
+                The only tool you will ever need to record all your aquarium
+                maintenance.
+              </h1>
+            </Col>
+            <Col xs={2}>
+              <LoginRegistrationContainer />
+            </Col>
+          </Row>
+        </Layout>
+        </Container>
       );
     }
   };

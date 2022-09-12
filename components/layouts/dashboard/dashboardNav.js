@@ -6,15 +6,14 @@ import AquariumIcon from "../../../public/images/aquariumMenuIcon.svg";
 import FishIcon from '../../../public/images/fish.svg'
 import CalendarIcon from '../../../public/images/calendar.svg'
 export default function DashboardNav(props) {
-  //TODO: see how to get rid of repition with tailwind styles
 
   const { pathname } = useRouter();
   return (
-    <ul class={`border-r text-center h-full bg-neutral text-white text-lg`}>
+    <ul>
       <Link href="/dashboard/home">
         <a >
-          <div  className='border-solid border  pt-5 pb-5'>
-          <li class={`h-16 flex justify-center items-center`}>
+          <div >
+          <li >
             <span
               class={`hover:text-teal-800 text-2xl  ${
                 pathname == "/dashboard/home" ? "text-teal-700" : null

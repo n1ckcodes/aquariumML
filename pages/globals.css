@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200&family=Oswald:wght@200&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 
 
 html,
@@ -15,13 +11,30 @@ body,
 
 html{
   font-family: 'Barlow Condensed', sans-serif;
+  background: lightslategray;
 }
-@layer components {
-  .card-body {
-    @apply p-0
-  }
 
-  /* .tab-lifted.tab-active {
-    @apply border-white
-  } */
+.app{
+  height: 100vh;
 }
+
+.tabs-btn:hover{
+  cursor: pointer;
+  background:lightblue;
+}
+
+.tabs-btn-is-active {
+  background:lightblue;
+  border: thin solid #ffffff;
+  border-radius:10px;
+}
+
+.tabs-btn {
+  text-decoration: none;
+  color:black;
+  background: lightgrey;
+  border: thin solid #ffffff;
+  border-radius:10px;
+}
+
+
