@@ -48,7 +48,6 @@ export default function Home({ user }) {
               </h1>
             </Col>
             <Col xs={2}>
-              <LoginRegistrationContainer />
             </Col>
           </Row>
         </Layout>

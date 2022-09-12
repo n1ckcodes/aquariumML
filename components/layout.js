@@ -12,7 +12,8 @@ export default function Layout({ children, user }) {
           <nav>
             <Nav />
           </nav>
-        ) : ( <></>
+        ) : (
+          <></>
         )}
         <div>{children}</div>
 

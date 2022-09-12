@@ -38,41 +38,45 @@ export default function LoginForm() {
   };
 
   return (
-
     <Form onSubmit={(e) => e.preventDefault()}>
-      <Form.Group className="mb-3">
-        <Form.Label>Username</Form.Label>
-        <Form.Control
-          type="text"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group className="mb-3">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </Form.Group>
-      {loginError ? (
-        <p style={{ color: "red", fontWeight: "bold" }}>
-          Error logging in. Please try again.
-        </p>
-      ) : (
-        <></>
-      )}
-      {invalidLogin ? (
-        <p style={{ color: "red", fontWeight: "bold" }}>
-          Invalid username or password.
-        </p>
-      ) : (
-        <></>
-      )}
-         <div className="d-grid gap-2">
-      <Button variant="secondary" size="md" onClick={() => submit()} type="submit">
+    <Form.Group className="mb-3">
+      <Form.Label>Username</Form.Label>
+      <Form.Control
+        type="text"
+        onChange={(e) => setUsername(e.target.value)}
+      />
+    </Form.Group>
+    <Form.Group className="mb-3">
+      <Form.Label>Password</Form.Label>
+      <Form.Control
+        type="password"
+        onChange={(e) => setPassword(e.target.value)}
+      />
+    </Form.Group>
+    {loginError ? (
+      <p style={{ color: "red", fontWeight: "bold" }}>
+        Error logging in. Please try again.
+      </p>
+    ) : (
+      <></>
+    )}
+    {invalidLogin ? (
+      <p style={{ color: "red", fontWeight: "bold" }}>
+        Invalid username or password.
+      </p>
+    ) : (
+      <></>
+    )}
+    <div className="d-grid gap-2">
+      <Button
+        variant="secondary"
+        size="md"
+        onClick={() => submit()}
+        type="submit"
+      >
         Login
       </Button>
-      </div>
-    </Form>
+    </div>
+  </Form>
   );
 }
