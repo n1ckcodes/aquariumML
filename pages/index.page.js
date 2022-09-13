@@ -74,7 +74,7 @@ export default function Home({ user }) {
           <Row>
             {mockArticles.map((a) => {
               return (
-                <Col sm={12} md={6} lg={4}>
+                <Col sm={12} md={6} lg={4} style={{marginBottom:"2vh", marginTop:"2vh"}}>
                   <ArticleCard title={a.title} blurb={a.blurb} />
                 </Col>
               );

@@ -11,7 +11,7 @@ function ArticleCard({img, title, blurb}) {
         <Card.Text>
          {blurb}
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button  variant="outline-secondary" >Read more...</Button>
       </Card.Body>
     </Card>
   );
