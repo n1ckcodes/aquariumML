@@ -34,6 +34,11 @@ html{
 .navbar-brand a{
   color:white;
   text-decoration: none;
+  font-size:2em;
+}
+
+#responsive-navbar-nav{
+  font-size:1.5em;
 }
 
 .tabs-btn:hover{
