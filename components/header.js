@@ -23,16 +23,18 @@ export default function Header(props) {
       <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#features">Articles</Nav.Link>
-            <Nav.Link href="#pricing">Guides</Nav.Link>
+            <Nav.Link href="#pricfadsfing">Guides</Nav.Link>
+            <Nav.Link href="#prifdfacing">Fish</Nav.Link>
+            <Nav.Link href="#pri123cing">Pictures</Nav.Link>
             <NavDropdown title="Tools" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Tools</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">Water change calculator</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                Another action
+                Temperature conversions
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
-                Separated link
+                Maintenance Logger
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
