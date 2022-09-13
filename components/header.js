@@ -79,7 +79,7 @@ export default function Header({user}) {
         ) : 
           
           <Nav>
- 
+                  <Nav.Link href="#pri123cing">Account</Nav.Link>
             <Nav.Link eventKey={1} href="/api/auth/logout">
               Logout
             </Nav.Link>
