@@ -8,13 +8,7 @@ export default function Layout({ children, user }) {
     <div>
       <Header user={user} />
       <Container style={{background:"#gray"}}>
-        {user ? (
-          <nav>
-            <Nav />
-          </nav>
-        ) : (
-          <></>
-        )}
+
         <div>{children}</div>
 
         <footer className="footer--pin">

@@ -39,14 +39,14 @@ const mockArticles = [
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
-    if (req.session.user) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/dashboard/home",
-        },
-      };
-    }
+    // if (req.session.user) {
+    //   return {
+    //     redirect: {
+    //       permanent: false,
+    //       destination: "/dashboard/home",
+    //     },
+    //   };
+    // }
     return {
       props: {
         user: req.session.user || null,
@@ -65,9 +65,7 @@ export default function Home({ user }) {
   }
 
   const renderController = () => {
-    if (user) {
-      return <DashboardLayout user={user} />;
-    } else {
+
       return (
         <Layout user={user}>
           <FeaturedArticle />
@@ -82,7 +80,7 @@ export default function Home({ user }) {
           </Row>
         </Layout>
       );
-    }
+    
   };
   return (
     <html data-theme="night" class="flex flex-col min-h-screen">

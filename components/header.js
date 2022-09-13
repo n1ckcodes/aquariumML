@@ -8,7 +8,8 @@ import { useRouter } from "next/router";
 import Login from "./auth/login";
 import Register from "./auth/register";
 
-export default function Header(props) {
+export default function Header({user}) {
+  console.log(user)
   const router = useRouter();
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -40,6 +41,7 @@ export default function Header(props) {
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
+        {!user ? (
         <Nav>
           <OverlayTrigger
             rootClose
@@ -74,6 +76,15 @@ export default function Header(props) {
             </Nav.Link>
           </OverlayTrigger>
         </Nav>
+        ) : 
+          
+          <Nav>
+ 
+            <Nav.Link eventKey={1} href="#rfdsa">
+              Logout
+            </Nav.Link>
+        </Nav>
+  }
       </Navbar.Collapse>
     </Navbar>
   );
