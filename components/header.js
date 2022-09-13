@@ -5,47 +5,48 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { useRouter } from "next/router";
-import Login from './auth/login'
-import Register from './auth/register'
-
+import Login from "./auth/login";
+import Register from "./auth/register";
 
 export default function Header(props) {
-
   const router = useRouter();
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Navbar.Brand href="#home">
         <Link href="/" className="header-nav-brand-link">
-          <a>Aquarium<span style={{color:"#0096FF"}}>QL</span></a>
+          <a>
+            Aquarium<span style={{ color: "#0096FF" }}>QL</span>
+          </a>
         </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Articles</Nav.Link>
-            <Nav.Link href="#pricfadsfing">Guides</Nav.Link>
-            <Nav.Link href="#prifdfacing">Fish</Nav.Link>
-            <Nav.Link href="#pri123cing">Pictures</Nav.Link>
-            <NavDropdown title="Tools" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Water change calculator</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Temperature conversions
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Maintenance Logger
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
+        <Nav className="me-auto">
+          <Nav.Link href="#features">Articles</Nav.Link>
+          <Nav.Link href="#pricfadsfing">Guides</Nav.Link>
+          <Nav.Link href="#prifdfacing">Fish</Nav.Link>
+          <Nav.Link href="#pri123cing">Pictures</Nav.Link>
+          <NavDropdown title="Tools" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">
+              Water change calculator
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+              Temperature conversions
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Maintenance Logger
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
         <Nav>
           <OverlayTrigger
-           rootClose
+            rootClose
             trigger="click"
             placement="bottom"
             overlay={
               <Popover id={`popover-positioned-bottom`}>
-             
                 <Popover.Body>
                   <Login />
                 </Popover.Body>
@@ -57,12 +58,11 @@ export default function Header(props) {
             </Nav.Link>
           </OverlayTrigger>
           <OverlayTrigger
-           rootClose
+            rootClose
             trigger="click"
             placement="bottom"
             overlay={
               <Popover id={`popover-positioned-bottom`}>
-             
                 <Popover.Body>
                   <Register />
                 </Popover.Body>
@@ -73,7 +73,6 @@ export default function Header(props) {
               Register
             </Nav.Link>
           </OverlayTrigger>
-
         </Nav>
       </Navbar.Collapse>
     </Navbar>

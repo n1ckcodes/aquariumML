@@ -5,7 +5,37 @@ import Layout from "../components/layout";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import HeroCarousel from "../components/carousel";
+import FeaturedArticle from "../components/articles/featured";
+import { Card } from "react-bootstrap";
+import ArticleCard from "../components/articles/card";
 
+const mockArticles = [
+  {
+    title: "article 1",
+    blurb: "fresh water aquarium test",
+  },
+  {
+    title: "article 2",
+    blurb: "fresh water aquarium beginnners",
+  },
+  {
+    title: "article 3",
+    blurb: "fresh water aquarium planted tank",
+  },
+  {
+    title: "article 4",
+    blurb: "fresh water aquarium community tank",
+  },
+  {
+    title: "article 5",
+    blurb: "fresh water aquarium cichlids",
+  },
+  {
+    title: "article 6",
+    blurb: "fresh water aquarium plants",
+  },
+];
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -40,15 +70,15 @@ export default function Home({ user }) {
     } else {
       return (
         <Layout user={user}>
+          <FeaturedArticle />
           <Row>
-            <Col xs={12} sm={10}>
-              <h1>
-                The only tool you will ever need to record all your aquarium
-                maintenance.
-              </h1>
-            </Col>
-            <Col xs={2}>
-            </Col>
+            {mockArticles.map((a) => {
+              return (
+                <Col sm={12} md={6} lg={4}>
+                  <ArticleCard title={a.title} blurb={a.blurb} />
+                </Col>
+              );
+            })}
           </Row>
         </Layout>
       );
