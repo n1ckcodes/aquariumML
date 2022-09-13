@@ -28,13 +28,22 @@ html{
 
 /* Header nav  */
 
+
 .navbar {
   padding: 1em;
+}
+
+.navbar.navbar-expand-lg.navbar-dark.bg-dark{
+  padding:15px;
 }
 .navbar-brand a{
   color:white;
   text-decoration: none;
   font-size:2em;
+}
+
+.navbar-brand a:hover{
+  color:white;
 }
 
 #responsive-navbar-nav{

@@ -7,9 +7,9 @@ import Popover from "react-bootstrap/Popover";
 import { useRouter } from "next/router";
 import Login from "./auth/login";
 import Register from "./auth/register";
-
-export default function Header({user}) {
-  console.log(user)
+import Image from 'react-bootstrap/Image'
+export default function Header({ user }) {
+  console.log(user);
   const router = useRouter();
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -26,6 +26,7 @@ export default function Header({user}) {
           <Nav.Link href="#features">Articles</Nav.Link>
           <Nav.Link href="#pricfadsfing">Guides</Nav.Link>
           <Nav.Link href="#prifdfacing">Fish</Nav.Link>
+          <Nav.Link href="#prifdfafdfscing">Plants</Nav.Link>
           <Nav.Link href="#pri123cing">Pictures</Nav.Link>
           <NavDropdown title="Tools" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">
@@ -42,49 +43,48 @@ export default function Header({user}) {
           </NavDropdown>
         </Nav>
         {!user ? (
-        <Nav>
-          <OverlayTrigger
-            rootClose
-            trigger="click"
-            placement="bottom"
-            overlay={
-              <Popover id={`popover-positioned-bottom`}>
-                <Popover.Body>
-                  <Login />
-                </Popover.Body>
-              </Popover>
-            }
-          >
-            <Nav.Link eventKey={2} href="#memes">
-              Login
-            </Nav.Link>
-          </OverlayTrigger>
-          <OverlayTrigger
-            rootClose
-            trigger="click"
-            placement="bottom"
-            overlay={
-              <Popover id={`popover-positioned-bottom`}>
-                <Popover.Body>
-                  <Register />
-                </Popover.Body>
-              </Popover>
-            }
-          >
-            <Nav.Link eventKey={1} href="#rfdsa">
-              Register
-            </Nav.Link>
-          </OverlayTrigger>
-        </Nav>
-        ) : 
-          
           <Nav>
-                  <Nav.Link href="#pri123cing">Account</Nav.Link>
+            <OverlayTrigger
+              rootClose
+              trigger="click"
+              placement="bottom"
+              overlay={
+                <Popover id={`popover-positioned-bottom`}>
+                  <Popover.Body>
+                    <Login />
+                  </Popover.Body>
+                </Popover>
+              }
+            >
+              <Nav.Link eventKey={2} href="#memes">
+                Login
+              </Nav.Link>
+            </OverlayTrigger>
+            <OverlayTrigger
+              rootClose
+              trigger="click"
+              placement="bottom"
+              overlay={
+                <Popover id={`popover-positioned-bottom`}>
+                  <Popover.Body>
+                    <Register />
+                  </Popover.Body>
+                </Popover>
+              }
+            >
+              <Nav.Link eventKey={1} href="#rfdsa">
+                Register
+              </Nav.Link>
+            </OverlayTrigger>
+          </Nav>
+        ) : (
+          <Nav>
+            <Nav.Link href="#pri123cing"><Image style={{height:"25px"}}fluid src="/images/fish.png"  thumbnail></Image>Welcome back, {user.username}</Nav.Link>
             <Nav.Link eventKey={1} href="/api/auth/logout">
               Logout
             </Nav.Link>
-        </Nav>
-  }
+          </Nav>
+        )}
       </Navbar.Collapse>
     </Navbar>
   );
