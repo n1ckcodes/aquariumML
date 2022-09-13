@@ -74,7 +74,7 @@ handler.post("/api/auth/login", async (req, res) => {
   });
 });
 
-handler.post("/api/auth/logout", async (req, res) => {
+handler.get("/api/auth/logout", async (req, res) => {
   await req.session.destroy();
   res.redirect(`/`);
 });

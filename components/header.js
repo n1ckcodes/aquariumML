@@ -80,7 +80,7 @@ export default function Header({user}) {
           
           <Nav>
  
-            <Nav.Link eventKey={1} href="#rfdsa">
+            <Nav.Link eventKey={1} href="/api/auth/logout">
               Logout
             </Nav.Link>
         </Nav>
