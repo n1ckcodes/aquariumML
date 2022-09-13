@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function ArticleCard({img, title, blurb}) {
+function ArticleCard({img, title, blurb, tags}) {
 
   return (
     <Card style={{ width: '18rem', display:"inline-block" }}>
@@ -10,6 +10,9 @@ function ArticleCard({img, title, blurb}) {
         <Card.Title>{title}</Card.Title>
         <Card.Text>
          {blurb}
+
+         <br />
+         {tags}
         </Card.Text>
         <Button  variant="outline-secondary" >Read more...</Button>
       </Card.Body>
