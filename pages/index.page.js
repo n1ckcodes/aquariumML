@@ -1,5 +1,5 @@
 import { withSessionSsr } from "../helpers/ironSession";
-import Layout from "../components/layout";
+import Layout from "../components/layouts/master";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";

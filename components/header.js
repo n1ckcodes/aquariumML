@@ -24,7 +24,7 @@ export default function Header({ user }) {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
           <Nav.Link href="#features">Articles</Nav.Link>
-          <Nav.Link href="#pricfadsfing">Guides</Nav.Link>
+          <Nav.Link href="pricfadsfing">Guides</Nav.Link>
           <Nav.Link href="#prifdfacing">Fish</Nav.Link>
           <Nav.Link href="#prifdfafdfscing">Plants</Nav.Link>
           <Nav.Link href="#pri123cing">Pictures</Nav.Link>
@@ -37,7 +37,7 @@ export default function Header({ user }) {
             </NavDropdown.Item>
             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
+            <NavDropdown.Item href="/maintenance">
               Maintenance Logger
             </NavDropdown.Item>
           </NavDropdown>

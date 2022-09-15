@@ -2,7 +2,7 @@ import { useState } from "react";
 import { withSessionSsr } from "../../helpers/ironSession";
 import { useRouter } from "next/router";
 import axios from "axios";
-import Layout from "../../components/layout";
+import Layout from "../../components/layouts/master";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {

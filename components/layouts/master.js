@@ -1,6 +1,6 @@
-import Nav from "./nav";
-import Header from "./header";
-import Footer from "./footer";
+import Nav from "../nav";
+import Header from "../header";
+import Footer from "../footer";
 import Container from "react-bootstrap/Container";
 
 export default function Layout({ children, user }) {
