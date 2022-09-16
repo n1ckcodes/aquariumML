@@ -8,79 +8,81 @@ export default function DashboardNav(props) {
 
   const { pathname } = useRouter();
   return (
+    <nav style={{background:"#D3D3D3", height:"100vh"}}>
     <ul>
-      <Link href="/dashboard/home">
+      <Link href="#" >
         <a >
-          <div >
+          <div style={{paddingBottom:"2vh", paddingTop:"2vh"}}>
           <li >
               Home
           </li>
           </div>
         </a>
       </Link>
-      <Link href="/dashboard/home">
+      <Link href="#">
         <a>
-        <div  className='border-solid border pt-5 pb-5'>
-          <li class={`h-16 flex justify-center items-center`}>
+        <div style={{paddingBottom:"2vh"}}>
+          <li>
           
-              <Image
+              {/* <Image
                 class="inline-block"
                 alt="Mountains"
                 src={AquariumIcon}
                 layout="responsive"
                 width={700}
                 height={475}
-              />{" "}
+              />{" "} */}
               Tanks
           </li>
           </div>
         </a>
       </Link>
 
-      <Link href="/dashboard/home">
+      <Link href="#">
         <a>
-        <div  className='border-solid border pt-5 pb-5'>
-          <li class={`h-16 flex justify-center items-center`}>
+        <div style={{paddingBottom:"2vh"}}>
+          <li >
          
               Maintenance
           </li>
           </div>
         </a>
       </Link>
-      <Link href="/dashboard/home">
+      <Link href="#">
         <a>
-        <div  className='border-solid border pt-5 pb-5'>
-          <li class={`h-16 flex justify-center items-center`}>
-          <Image
+        <div style={{paddingBottom:"2vh"}}>
+          <li >
+          {/* <Image
             class="inline-block"
             alt="Mountains"
             src={FishIcon}
             layout="responsive"
             width={700}
             height={475}
-          />{" "}
+          />{" "} */}
               Fish
           </li>
           </div>
         </a>
       </Link>
-      <Link href="/dashboard/home">
+      <Link href="#">
         <a>
-        <div  className='border-solid border pt-5 pb-5'>
-          <li class={`h-16 flex justify-center items-center`}>
-            <Image
+        <div style={{paddingBottom:"2vh"}}>
+          <li>
+            {/* <Image
             class="inline-block"
             alt="Mountains"
             src={CalendarIcon}
             layout="responsive"
             width={700}
             height={475}
-          />{" "}
+          />{" "} */}
               Calendar
           </li>
           </div>
         </a>
       </Link>
     </ul>
+    </nav>
   );
 }

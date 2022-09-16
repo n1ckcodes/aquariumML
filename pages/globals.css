@@ -18,6 +18,11 @@ html{
   height: 100vh;
 }
 
+.container, .container-fluid{
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+
 
 
 .footer--pin {
@@ -48,6 +53,21 @@ html{
 
 #responsive-navbar-nav{
   font-size:1.5em;
+}
+
+nav ul{
+  padding-left:0 !important;
+}
+nav ul li {
+  list-style: none;
+  text-align: center;
+  padding-left:0;
+}
+
+nav a{
+  text-decoration: none;
+  color:black;
+  font-size:1.25em;
 }
 
 /* Carousel */

@@ -26,6 +26,6 @@ export default function MaintenanceHome({ user }) {
 
 
   return (
-  <MaintenanceDashboard>🐟🐟🐟🐟</MaintenanceDashboard>
+  <MaintenanceDashboard user={user}>🐟🐟🐟🐟</MaintenanceDashboard>
   );
 }
