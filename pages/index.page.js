@@ -35,18 +35,21 @@ export default function Home({ user }) {
       <Layout user={user}>
         <FeaturedArticle />
         <Row>
+          <Col xs={12} sm={3}>
           {articles.map((a) => {
             return (
               <Col
-                sm={12}
-                md={6}
-                lg={4}
-                style={{ marginBottom: "2vh", marginTop: "2vh", textAlign:"center" }}
+                xs={12}
+                style={{ marginBottom: "2vh", marginTop: "2vh"}}
               >
+
                 <ArticleCard title={a.title} thumbnail={a.thumbnail} blurb={a.blurb} tags={a.tags} />
               </Col>
             );
+            
           })}
+          </Col>
+          <Col>OTher content</Col>
         </Row>
       </Layout>
     );
