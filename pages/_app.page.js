@@ -1,9 +1,15 @@
-
 import "./globals.css";
-import SSRProvider from 'react-bootstrap/SSRProvider';
+import SSRProvider from "react-bootstrap/SSRProvider";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { UserContextProvider } from "../context/userContext";
 function App({ Component, pageProps }) {
-  return <SSRProvider><Component {...pageProps} /></SSRProvider>;
+  return (
+    <SSRProvider>
+      <UserContextProvider>
+        <Component {...pageProps} />
+      </UserContextProvider>
+    </SSRProvider>
+  );
 }
 
 export default App;
