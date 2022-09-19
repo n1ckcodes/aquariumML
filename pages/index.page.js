@@ -3,6 +3,7 @@ import Layout from "../components/layouts/master";
 
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container"
 import articles from "../data/articles";
 import FeaturedArticle from "../components/articles/featured";
 import ArticleCard from "../components/articles/card";
@@ -35,12 +36,12 @@ export default function Home({ user }) {
     return (
       <Layout user={user}>
         <FeaturedArticle />
+        <Container>
         <Row>
-          <Col xs={12} sm={3}>
           {articles.map((a) => {
             return (
               <Col
-                xs={12}
+                xs={4}
                 style={{ marginBottom: "2vh", marginTop: "2vh"}}
               >
 
@@ -49,9 +50,9 @@ export default function Home({ user }) {
             );
             
           })}
-          </Col>
           <Col lg={5}>    <img className="img-fluid " alt="Vercel logo" src={'./images/hero4.jpg'}/></Col>
         </Row>
+        </Container>
       </Layout>
     );
   };
