@@ -6,7 +6,8 @@ import Col from "react-bootstrap/Col";
 import articles from "../data/articles";
 import FeaturedArticle from "../components/articles/featured";
 import ArticleCard from "../components/articles/card";
-
+import Image from 'next/image'
+import Hero1 from '../public/images/hero.png'
 
 
 export const getServerSideProps = withSessionSsr(
@@ -49,7 +50,7 @@ export default function Home({ user }) {
             
           })}
           </Col>
-          <Col>OTher content</Col>
+          <Col lg={5}>    <img className="img-fluid " alt="Vercel logo" src={'./images/hero4.jpg'}/></Col>
         </Row>
       </Layout>
     );

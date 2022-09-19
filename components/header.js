@@ -25,7 +25,7 @@ export default function Header({ user }) {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#features">Articles</Nav.Link>
+          {/* <Nav.Link href="#features">Articles</Nav.Link>
           <Nav.Link href="pricfadsfing">Guides</Nav.Link>
           <Nav.Link href="#prifdfacing">Fish</Nav.Link>
           <Nav.Link href="#prifdfafdfscing">Plants</Nav.Link>
@@ -42,7 +42,7 @@ export default function Header({ user }) {
             <NavDropdown.Item href="/maintenance">
               Maintenance Logger
             </NavDropdown.Item>
-          </NavDropdown>
+          </NavDropdown> */}
         </Nav>
         <Form className="d-flex">
             <Form.Control

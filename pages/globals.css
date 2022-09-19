@@ -11,8 +11,10 @@ body,
 
 html{
   font-family: 'Roboto', sans-serif;
-  background: #f9f9f9;
+  /*background: #f9f9f9;*/
+
 }
+
 
 .app{
   height: 100vh;
@@ -21,6 +23,7 @@ html{
 .container, .container-fluid{
   padding-left:0 !important;
   padding-right:0 !important;
+  background: #5a7192;
 }
 
 
