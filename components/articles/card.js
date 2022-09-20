@@ -1,22 +1,22 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-function ArticleCard({thumbnail, title, blurb, tags}) {
+function ArticleCard({header, title, blurb}) {
 
   return (
-    <Card style={{ width: '18rem', display:"inline-block" }}>
-      <Card.Img variant="top" src={thumbnail} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-        <Card.Text>
-         {blurb}
-
-         <br />
-         {tags}
-        </Card.Text>
-        <Button  variant="outline-secondary" >Read more...</Button>
-      </Card.Body>
-    </Card>
+    <Card
+    bg={"light"}
+    key={"light"}
+    text={"dark"}
+  >
+    <Card.Header>{header}</Card.Header>
+    <Card.Body>
+      <Card.Title> {title} </Card.Title>
+      <Card.Text>
+        {blurb}
+      </Card.Text>
+    </Card.Body>
+  </Card>
   );
 }
 
