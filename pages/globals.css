@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200&family=Oswald:wght@200&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 html,
 body,
 #__next {
@@ -12,7 +12,7 @@ body,
 }
 
 html{
-  font-family: 'Barlow Condensed', sans-serif;
+ 
   /*background: #f9f9f9;*/
 
 
@@ -26,6 +26,7 @@ html{
 
 .hero1{
   -webkit-text-stroke: 1px black; /* width and color */
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 .card {

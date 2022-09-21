@@ -37,9 +37,9 @@ export default function Home({ user }) {
             <Col lg={6}>
            
               <div style={{color:"white", textAlign:"center",  marginTop:"20vh"}}>
-              <span className="hero1" style={{color:"white", fontSize:"4em", textAlign:"center"}}>The language of aquarists.</span>
+              <span className="hero1" style={{color:"white", fontSize:"4em", textAlign:"center"}}>Speak the language of aquarists.</span>
               <br/><br />
-              AquariumQL is a comprehensive tool for managing your aquarium</div>
+              AquariumQL is a comprehensive platform for aquarium guides, knowledge sharing, and managing your aquarium maintence schedule </div>
             
             </Col>
             <Col lg={5}>
