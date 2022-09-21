@@ -42,6 +42,37 @@ html{
   background-size: cover;
   background-blend-mode:overlay;
   height:100vh; 
+  
+}
+
+.row1{
+  background: #727272;
+  background-image: url('/images/test.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode:overlay;
+  height:100vh; 
+}
+
+.row2{
+  background: #727272;
+  background-image: url('/images/hero7.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode:overlay;
+  height:100vh; 
+}
+
+.row3{
+  background: #727272;
+  background-image: url('/images/hero6.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode:overlay;
+  height:100vh; 
 }
 
 
