@@ -44,7 +44,7 @@ export default function Header({ user }) {
             </NavDropdown.Item>
           </NavDropdown> */}
         </Nav>
-        <Form className="d-flex">
+        {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -52,7 +52,7 @@ export default function Header({ user }) {
               aria-label="Search"
             />
             <Button variant="outline-success">Search</Button>
-          </Form>
+          </Form> */}
         {!user ? (
           <Nav>
             <OverlayTrigger
