@@ -1,6 +1,6 @@
 import { withSessionSsr } from "../helpers/ironSession";
 import Layout from "../components/layouts/master";
-
+import Button from 'react-bootstrap/Button';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -34,20 +34,28 @@ export default function Home({ user }) {
     return (
        <Layout user={user}>
           <Row>
-            <Col lg={6}>
            
-              <div style={{color:"white", textAlign:"center",  marginTop:"20vh"}}>
+              <div style={{color:"white", textAlign:"center",  marginTop:"20vh", marginBottom:"2vh"}}>
               <span className="hero1" style={{color:"white", fontSize:"4em", textAlign:"center"}}>Speak the language of aquarists.</span>
               <br/><br />
               AquariumQL is a comprehensive platform for aquarium guides, knowledge sharing, and managing your aquarium maintence schedule </div>
-            
-            </Col>
-            <Col lg={5}>
-              <Row>
+              <br /><br /><br />
+              <Col lg={3} xl={3}></Col>
+              <Col lg={6} xl={6} style={{textAlign:"center"}}> 
+              <Button variant="secondary" style={{margin:"1vh"}} size="lg">Get Started</Button>
+              <Button variant="secondary" size="lg"  style={{margin:"1vh"}}>
+          Learn more
+        </Button>
+        </Col>
+        <Col lg={3} xl={3}></Col>
+            <Row>
+              <Col lg={3} xl={3}></Col>
+              <Col lg={6} xl={6}><br />
             {articles.map((a) => {
                 return (
-                  <Col sm={2}md={2} lg={2} xl={2} style={{margin:"2vh auto", width:"50%" }}>
-                    <ArticleCard
+                  <Col sm={2}md={2} lg={5} xl={4} style={{margin:"2", display:"inline-block" }}>
+                    <ArticleCard 
+
                       header={a.header}
                       title={a.title}
                       blurb={a.blurb}
@@ -55,6 +63,8 @@ export default function Home({ user }) {
                   </Col>
                 );
               })}
+              </Col>
+              <Col lg={3} xl={3}></Col>
               </Row>
               {" "}
       
@@ -78,8 +88,6 @@ export default function Home({ user }) {
                 alt="Vercel logo"
                 src={"./images/hero6.jpg"}
               /> */}
-            </Col>
-            <Col lg={5}> </Col>
           </Row>
        </Layout>
     );
