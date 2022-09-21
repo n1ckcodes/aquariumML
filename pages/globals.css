@@ -8,23 +8,37 @@ body,
   height: 100%;
   font-family: 'Roboto', sans-serif;
   background: #5a7192;
+  
 }
 
 html{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Barlow Condensed', sans-serif;
   /*background: #f9f9f9;*/
+
 
 }
 
 
 .app{
   height: 100vh;
+
+}
+
+.hero1{
+  -webkit-text-stroke: 1px black; /* width and color */
+}
+
+.card {
+  opacity:95%;
 }
 
 .container, .container-fluid{
-  padding-left:0 !important;
-  padding-right:0 !important;
   background: #5a7192;
+  background-image: url('/images/test.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height:100vh; 
 }
 
 

@@ -1,31 +1,30 @@
  const articles = [
     {
-      "header": "Log",
-      "title": "article 1",
-      "blurb": "fresh water aquarium test",
+      "header": "Guides",
+      "blurb": "Beginner or expert, our member provided guides will help you get started in the right direction.",
       "tags": "freshwater, testing",
       "thumbnail": "http://placeimg.com/300/300/animals"
     },
     {
-      "header": "Reminders",
+      "header": "Articles",
       "title": "reminder title",
       "blurb": "fresh water aquarium beginnners",
       "thumbnail": "http://placeimg.com/300/300/animals"
     },
     {
-      "header": "Stats",
+      "header": "Tools",
       "title": "statstitle",
       "blurb": "fresh water aquarium planted tank",
       "thumbnail": "http://placeimg.com/300/300/animals"
     },
     {
-      "header": "Tools",
+      "header": "Profiles",
       "title": "Tools",
       "blurb": "fresh water aquarium community tank",
       "thumbnail": "http://placeimg.com/300/300/animals"
     },
     {
-      "header": "Profiles",
+      "header": "Community",
       "title": "Profiles",
       "blurb": "fresh water aquarium cichlids",
       "thumbnail": "http://placeimg.com/300/300/animals"

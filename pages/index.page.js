@@ -32,12 +32,21 @@ export const getServerSideProps = withSessionSsr(
 export default function Home({ user }) {
   const renderController = () => {
     return (
-      <Layout user={user}>
+       <Layout user={user}>
           <Row>
             <Col lg={6}>
-              {articles.map((a) => {
+           
+              <div style={{color:"white", textAlign:"center",  marginTop:"20vh"}}>
+              <span className="hero1" style={{color:"white", fontSize:"4em", textAlign:"center"}}>The language of aquarists.</span>
+              <br/><br />
+              AquariumQL is a comprehensive tool for managing your aquarium</div>
+            
+            </Col>
+            <Col lg={5}>
+              <Row>
+            {articles.map((a) => {
                 return (
-                  <Col style={{margin:"2vh auto", width:"75%" }}>
+                  <Col sm={2}md={2} lg={2} xl={2} style={{margin:"2vh auto", width:"50%" }}>
                     <ArticleCard
                       header={a.header}
                       title={a.title}
@@ -46,10 +55,10 @@ export default function Home({ user }) {
                   </Col>
                 );
               })}
-            </Col>
-            <Col lg={5}>
+              </Row>
               {" "}
-              <img
+      
+              {/* <img
                 className="img-fluid "
                 alt="Vercel logo"
                 src={"./images/hero7.jpg"}
@@ -68,11 +77,11 @@ export default function Home({ user }) {
                 className="img-fluid "
                 alt="Vercel logo"
                 src={"./images/hero6.jpg"}
-              />
+              /> */}
             </Col>
             <Col lg={5}> </Col>
           </Row>
-      </Layout>
+       </Layout>
     );
   };
   return <html>{renderController()}</html>;
