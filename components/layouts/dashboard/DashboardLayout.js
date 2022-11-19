@@ -5,7 +5,7 @@ import DashboardNavController from "components/layouts/dashboard/DashboardNavCon
 export default function MaintenanceDashboard({ children, user }) {
   return (
     <Layout>
-      <Row>
+      <Row style={{height:"100%"}}>
         <Col xs={5} sm={2} md={3} lg={4} xl={1}>
           <DashboardNavController />
         </Col>

@@ -33,8 +33,19 @@ export default function Home({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row className="row1">hehe</Row>
-        </MaintenanceDashboard>
+        <Row style={{height:"75%"}}>
+          <p
+            style={{
+              fontSize:"3em",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            It's quiet here...
+          </p>
+        </Row>
+      </MaintenanceDashboard>
     );
   };
   return <html>{renderController()}</html>;

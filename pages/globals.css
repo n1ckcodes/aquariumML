@@ -5,14 +5,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400&display=swap');
 html,
-body,
-#__next {
+body
+ {
   font-family: 'Roboto', sans-serif;
   background: #fffbfe;
   border: 3px;
   box-sizing: border-box;
   height:100vh;
-  
+  display: flex;
+  flex-direction: column;
 }
 
 header  {
@@ -23,11 +24,14 @@ header  {
   text-align:center;
 }
 
-html{
- 
-  background: #fffbfe;
 
 
+body,html {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
 }
 
 
@@ -36,7 +40,6 @@ footer {
   color:white;
   margin:0;
   padding:0;
-  height:10%;
 }
 
 

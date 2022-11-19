@@ -6,12 +6,21 @@ export default function MobileDashboardNav(props) {
   const { pathname } = useRouter();
   return (
     <nav style={{ borderRight: "solid lightgray 1px", height: "100vh" }}>
-      <FontAwesomeIcon icon="home" />
-      <FontAwesomeIcon icon="fish" />
-      <FontAwesomeIcon icon="tools" />
-      <FontAwesomeIcon icon="gear" />
-      <div>Test</div>
-
+      <ul>
+        <li>
+          <FontAwesomeIcon icon="home" />{" "}
+        </li>
+        <li>
+          {" "}
+          <FontAwesomeIcon icon="fish" />
+        </li>
+        <li>
+          <FontAwesomeIcon icon="tools" />
+        </li>
+        <li>
+          <FontAwesomeIcon icon="gear" />
+        </li>
+      </ul>
     </nav>
   );
 }

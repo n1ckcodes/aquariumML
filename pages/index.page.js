@@ -24,7 +24,6 @@ export default function Home({ user }) {
   const renderController = () => {
     return (
       <Layout user={user}>
-        <Row></Row>
       </Layout>
     );
   };

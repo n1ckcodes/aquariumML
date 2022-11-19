@@ -5,7 +5,7 @@ export default function Layout({ children, user }) {
   return (
     <>
       <Header user={user} />
-      <Container fluid>{children}Placeholder content</Container>
+      <Container fluid style={{height:"100%"}}>{children}</Container>
     </>
   );
 }
