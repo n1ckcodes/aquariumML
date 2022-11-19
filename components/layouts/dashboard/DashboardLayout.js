@@ -1,8 +1,8 @@
-import Layout from "./MasterLayout";
+import Layout from "../MasterLayout";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import DashboardNav from "./dashboard/DashboardNav";
+import DashboardNav from "./DashboardNav";
 export default function MaintenanceDashboard({ children, user }) {
   return (
     <Layout>

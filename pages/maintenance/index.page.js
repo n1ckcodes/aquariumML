@@ -1,6 +1,6 @@
 import { withSessionSsr } from "helpers/ironSession";
 import Layout from "components/layouts/MasterLayout";
-import MaintenanceDashboard from "components/layouts/MaintenanceDashboard";
+import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import Container from "react-bootstrap/Container";
 
 export const getServerSideProps = withSessionSsr(

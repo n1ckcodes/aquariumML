@@ -1,4 +1,4 @@
-import MaintenanceDashboard from "components/layouts/MaintenanceDashboard";
+import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import { withSessionSsr } from "helpers/ironSession";
 // import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";

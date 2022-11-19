@@ -7,10 +7,10 @@ export default function DashboardNav(props) {
     <nav style={{ background: "#D3D3D3", height: "100vh" }}>
       <div>Test</div>
       <ul>
-        <Link href="#">
+        <Link href="/dashboard">
           <a>
             <div style={{ paddingBottom: "1vh", paddingTop: "1vh" }}>
-              <li>Dashboard</li>
+              <li>Home</li>
             </div>
           </a>
         </Link>
@@ -21,7 +21,7 @@ export default function DashboardNav(props) {
             </div>
           </a>
         </Link>
-        <Link href="#">
+        <Link href="/dashboard/tools">
           <a>
             <div style={{ paddingBottom: "1vh", paddingTop: "1vh" }}>
               <li>Tools</li>
