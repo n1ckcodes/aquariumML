@@ -1,5 +1,5 @@
 import { withSessionSsr } from "helpers/ironSession";
-import Layout from "components/layouts/master";
+import Layout from "components/layouts/MasterLayout";
 import MaintenanceDashboard from "components/layouts/MaintenanceDashboard";
 import Container from "react-bootstrap/Container";
 
