@@ -3,25 +3,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400&display=swap');
 html,
 body,
 #__next {
-  height: 100%;
   font-family: 'Roboto', sans-serif;
   background: #5a7192;
+  border: 3px;
+  box-sizing: border-box;
+  height:100vh;
   
+}
+
+header  {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size:4em;
+  font-weight:bold;
+  color:white;
+  text-align:center;
 }
 
 html{
  
-  /*background: #f9f9f9;*/
+  background: #f9f9f9;
 
 
 }
 
 
 .app{
-  height: 100vh;
 
 }
 
@@ -35,45 +45,45 @@ html{
 }
 
 .container, .container-fluid{
-  background: #727272;
-  background-image: url('/images/test.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode:overlay;
-  height:100vh; 
-  
-}
-
-.row1{
-  background: #727272;
-  background-image: url('/images/test.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode:overlay;
-  height:100vh; 
-}
-
-.row2{
-  background: #727272;
-  background-image: url('/images/hero7.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode:overlay;
-  height:100vh; 
-}
-
-.row3{
-  background: #727272;
+  /* background: #727272;
+  background-attachment: fixed;
   background-image: url('/images/hero12.jpg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode:overlay;
-  height:100vh; 
+  background-size: cover; */
+  height:90%; 
+  border: 3px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  
 }
+
+footer {
+  background: black;
+  color:white;
+  margin:0;
+  padding:0;
+  height:10%;
+}
+
+
+
+.row1{
+  /* background: #727272;
+  background-image: 
+  radial-gradient(
+    rgba(0, 30, 40, 3),
+    rgba(0, 10, 140, 0.25)
+  ),url('/images/hero4.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode:overlay; */
+  height:90%; 
+ 
+}
+
+
 
 
 

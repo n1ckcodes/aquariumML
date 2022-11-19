@@ -7,7 +7,7 @@ const loginSchema = {
   required: ["username", "password"],
 };
 
-const registrationSchema = {
+const RegistrationSchema = {
   type: "object",
   properties: {
     username: { type: "string" },
@@ -18,6 +18,6 @@ const registrationSchema = {
 };
 
 module.exports = {
-  loginSchema,
-  registrationSchema,
+  LoginSchema,
+  RegistrationSchema,
 };

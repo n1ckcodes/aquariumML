@@ -18,7 +18,7 @@ export default function Header({ user }) {
       <Navbar.Brand href="#home">
         <Link href="/" className="header-nav-brand-link">
           <a>
-            Aquarium<span style={{ color: "#0096FF" }}>QL</span>
+            Aquarium<span style={{ color: "#0096FF" }}>ML</span>
           </a>
         </Link>
       </Navbar.Brand>

@@ -1,8 +1,7 @@
-import { withSessionSsr } from "../../helpers/ironSession";
-import Layout from "../../components/layouts/master";
-import MaintenanceDashboard from '../../components/layouts/maintenanceDashboard'
-import Container from 'react-bootstrap/Container';
-
+import { withSessionSsr } from "helpers/ironSession";
+import Layout from "components/layouts/master";
+import MaintenanceDashboard from "components/layouts/maintenanceDashboard";
+import Container from "react-bootstrap/Container";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -23,9 +22,5 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function MaintenanceHome({ user }) {
-
-
-  return (
-  <MaintenanceDashboard user={user}>🐟🐟🐟🐟</MaintenanceDashboard>
-  );
+  return <MaintenanceDashboard user={user}>🐟🐟🐟🐟</MaintenanceDashboard>;
 }

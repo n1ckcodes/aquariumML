@@ -1,7 +1,7 @@
 import nc from "next-connect";
-import { withSessionRoute } from "../../../helpers/ironSession";
-import { createUser, getUserByUsername } from "../db/userQueries";
-import { loginSchema, registrationSchema } from "./schemas";
+import { withSessionRoute } from "helpers/ironSession";
+import { createUser, getUserByUsername } from "db/userQueries";
+import { LoginSchema, RegistrationSchema } from "schemas";
 const { validate } = require("jsonschema");
 const bcrypt = require("bcrypt");
 
@@ -18,10 +18,10 @@ const handler = nc({
 });
 
 handler.post("/api/auth/register", async (req, res) => {
-  const result = validate(req.body, registrationSchema);
+  const payload = validate(req.body, RegistrationSchema);
 
-  if (!result.valid) {
-    return res.status(400).json(result.errors.map((err) => err.stack));
+  if (!payload.valid) {
+    return res.status(400).json(payload.errors.map((err) => err.stack));
   }
 
   const { username, password, email } = req.body;
@@ -50,9 +50,9 @@ handler.post("/api/auth/register", async (req, res) => {
 });
 
 handler.post("/api/auth/login", async (req, res) => {
-  const result = validate(req.body, loginSchema);
-  if (!result.valid) {
-    return res.status(400).json(result.errors.map((err) => err.stack));
+  const payload = validate(req.body, LoginSchema);
+  if (!payload.valid) {
+    return res.status(400).json(payload.errors.map((err) => err.stack));
   }
   const { username, password } = req.body;
   return getUserByUsername(username).then(async (user) => {
