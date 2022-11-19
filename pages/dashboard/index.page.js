@@ -42,7 +42,8 @@ export default function Home({ user }) {
               alignItems: "center",
             }}
           >
-            It's quiet here...
+            <img src="images/fish-bowl.png" /> <br /><br />
+            <p>Things are looking pretty empty here...</p>
           </p>
         </Row>
       </MaintenanceDashboard>
