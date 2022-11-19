@@ -14,7 +14,7 @@ export default function DesktopDashboardNav(props) {
             </div>
           </a>
         </Link>
-        <Link href="#">
+        <Link href="/dashboard/tanks">
           <a>
             <div style={{ paddingBottom: "1vh", paddingTop: "1vh" }}>
               <li>Tanks</li>
