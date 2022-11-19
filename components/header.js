@@ -1,20 +1,17 @@
 import Link from "next/link";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import { useRouter } from "next/router";
 import Login from "./auth/login";
 import Register from "./auth/register";
 import Image from 'react-bootstrap/Image'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 export default function Header({ user }) {
   console.log(user);
   const router = useRouter();
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-0">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-2">
       <Navbar.Brand href="#home">
         <Link href="/" className="header-nav-brand-link">
           <a>

@@ -1,15 +1,11 @@
-import Header from "../header";
-import Footer from "../footer";
+import Header from "components/Header";
 import Container from "react-bootstrap/Container";
 
 export default function Layout({ children, user }) {
   return (
     <>
       <Header user={user} />
-      <Container fluid style={{ background: "#gray" }}>
-        {children}fdsafads
-        {/* <Footer /> */}
-      </Container>
+      <Container fluid>{children}Placeholder content</Container>
     </>
   );
 }

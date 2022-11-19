@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function DashboardNav(props) {
+export default function DesktopDashboardNav(props) {
   const { pathname } = useRouter();
   return (
     <nav style={{ borderRight: "solid lightgray 1px", height: "100vh" }}>
@@ -10,7 +11,7 @@ export default function DashboardNav(props) {
         <Link href="/dashboard">
           <a>
             <div style={{ paddingBottom: "1vh", paddingTop: "1vh" }}>
-              <li>Home</li> 
+              <li>Home</li>
             </div>
           </a>
         </Link>
@@ -35,8 +36,6 @@ export default function DashboardNav(props) {
             </div>
           </a>
         </Link>
-
-      
       </ul>
     </nav>
   );

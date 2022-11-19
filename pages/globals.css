@@ -57,12 +57,14 @@ footer {
 .navbar {
   font-family: 'Barlow Condensed', sans-serif;
   padding:15px;
+  font-size:1.25em;
 }
 
 
 .navbar-brand a{
   color:white;
   text-decoration: none;
+  font-size:1.5em;
 }
 
 .navbar-brand a:hover{
