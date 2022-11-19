@@ -8,7 +8,7 @@ html,
 body,
 #__next {
   font-family: 'Roboto', sans-serif;
-  background: #d0cfcf;
+  background: #fffbfe;
   border: 3px;
   box-sizing: border-box;
   height:100vh;
@@ -25,38 +25,11 @@ header  {
 
 html{
  
-  background: #d0cfcf;
+  background: #fffbfe;
 
 
 }
 
-
-.app{
-
-}
-
-.hero1{
-  -webkit-text-stroke: 1px black; /* width and color */
-  font-family: 'Poppins', sans-serif;
-}
-
-.card {
-  opacity:95%;
-}
-
-.container, .container-fluid{
-  /* background: #727272;
-  background-attachment: fixed;
-  background-image: url('/images/hero12.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover; */
-  height:90%; 
-  border: 3px;
-  box-sizing: border-box;
-  flex-grow: 1;
-  
-}
 
 footer {
   background: black;
@@ -67,21 +40,6 @@ footer {
 }
 
 
-
-.row1{
-  /* background: #727272;
-  background-image: 
-  radial-gradient(
-    rgba(0, 30, 40, 3),
-    rgba(0, 10, 140, 0.25)
-  ),url('/images/hero4.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-blend-mode:overlay; */
-  height:90%; 
- 
-}
 
 
 
