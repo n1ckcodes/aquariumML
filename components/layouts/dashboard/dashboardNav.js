@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Image from "next/image";
-import AquariumIcon from "../../../public/images/aquariumMenuIcon.svg";
-import FishIcon from "../../../public/images/fish.svg";
-import CalendarIcon from "../../../public/images/calendar.svg";
+
 export default function DashboardNav(props) {
   const { pathname } = useRouter();
   return (

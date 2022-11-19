@@ -14,7 +14,7 @@ export default function Header({ user }) {
   console.log(user);
   const router = useRouter();
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-0">
       <Navbar.Brand href="#home">
         <Link href="/" className="header-nav-brand-link">
           <a>

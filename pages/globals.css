@@ -8,7 +8,7 @@ html,
 body,
 #__next {
   font-family: 'Roboto', sans-serif;
-  background: #5a7192;
+  background: #d0cfcf;
   border: 3px;
   box-sizing: border-box;
   height:100vh;
@@ -25,7 +25,7 @@ header  {
 
 html{
  
-  background: #f9f9f9;
+  background: #d0cfcf;
 
 
 }
@@ -97,26 +97,21 @@ footer {
 
 
 .navbar {
-  padding: 1em;
   font-family: 'Barlow Condensed', sans-serif;
-}
-
-.navbar.navbar-expand-lg.navbar-dark.bg-dark{
   padding:15px;
 }
+
+
 .navbar-brand a{
   color:white;
   text-decoration: none;
-  font-size:2em;
 }
 
 .navbar-brand a:hover{
   color:white;
 }
 
-#responsive-navbar-nav{
-  font-size:1.5em;
-}
+
 
 nav {
   font-family: 'Barlow Condensed', sans-serif;

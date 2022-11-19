@@ -1,3 +1,4 @@
+import MaintenanceDashboard from "components/layouts/MaintenanceDashboard";
 import { withSessionSsr } from "helpers/ironSession";
 // import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -12,14 +13,14 @@ import Row from "react-bootstrap/Row";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
-    if (!req.session.user) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: "/",
-        },
-      };
-    }
+    // if (!req.session.user) {
+    //   return {
+    //     redirect: {
+    //       permanent: false,
+    //       destination: "/",
+    //     },
+    //   };
+    // }
     return {
       props: {
         user: req.session.user || null,
@@ -31,7 +32,9 @@ export const getServerSideProps = withSessionSsr(
 export default function Home({ user }) {
   const renderController = () => {
     return (
+      <MaintenanceDashboard>
         <Row className="row1">hehe</Row>
+        </MaintenanceDashboard>
     );
   };
   return <html>{renderController()}</html>;

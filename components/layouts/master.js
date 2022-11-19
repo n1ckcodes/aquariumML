@@ -7,9 +7,9 @@ export default function Layout({ children, user }) {
   return (
     <>
     <Header user={user} />
-      <Container fluid style={{ background: "#gray" }}>
-       {children}
-       <Footer />
+      <Container fluid  style={{ background: "#gray" }}>
+       {children}fdsafads
+       {/* <Footer /> */}
       </Container>
       </>
   );

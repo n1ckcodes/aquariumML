@@ -33,13 +33,8 @@ export default function Home({ user }) {
   const renderController = () => {
     return (
       <Layout user={user}>
-        <Row className="row1">
-     <header>
-              {/* Speak the language of aquarists. */}
-            AquariumQL is a comprehensive platform for aquarium guides,
-            knowledge sharing, and managing your aquarium maintence schedule{" "}
-            </header>
-
+        <Row>
+      
       </Row>
       </Layout>
     );
