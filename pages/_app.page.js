@@ -1,8 +1,9 @@
 import SSRProvider from "react-bootstrap/SSRProvider";
+import Head from "next/head";
+import { UserContextProvider } from "context/userContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
-import { UserContextProvider } from "context/userContext";
-import Head from "next/head";
+
 function App({ Component, pageProps }) {
   return (
     <SSRProvider>
