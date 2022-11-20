@@ -42,8 +42,8 @@ export default function Home({ user }) {
               alignItems: "center",
             }}
           >
-            <img src="images/fish-bowl.png" /> <br /><br />
-            <p>Things are looking pretty empty here...</p>
+       
+            <p>Empty graphs that will say no data avail</p>
           </p>
         </Row>
       </MaintenanceDashboard>

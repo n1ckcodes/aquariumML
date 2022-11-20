@@ -42,7 +42,7 @@ export default function Tanks({ user }) {
               alignItems: "center",
             }}
           >
-            <img src="images/fish-bowl.png" /> <br /><br />
+            <img src="/images/fish-bowl.png" /> <br /><br />
             <p>Things are looking pretty empty here...</p>
           </p>
         </Row>
