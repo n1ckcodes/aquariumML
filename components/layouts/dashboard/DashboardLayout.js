@@ -19,9 +19,9 @@ export default function MaintenanceDashboard({ children, user }) {
          : null }
 
         <Col>{children}</Col>
-        {isMobile ? <MobileDashboardNav /> : <></>}
+   
       </Row>
-    
+      {isMobile ? <MobileDashboardNav /> : <></>}
     </Layout>
   );
 }

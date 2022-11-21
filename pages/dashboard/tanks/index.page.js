@@ -31,6 +31,9 @@ export default function Tanks({ user }) {
           {MockTankData.map(tank => {
             return <Col xs={6}>{tank.name}</Col>
           })}
+                    {MockTankData.map(tank => {
+            return <Col xs={6}>{tank.name}</Col>
+          })}
         </Row>
       </MaintenanceDashboard>
     );
