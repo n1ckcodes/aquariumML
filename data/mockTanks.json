@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "name": "Office Tank",
+        "size:": "50gal"
+    },
+    {
+        "id": 2,
+        "name": "Living Room Tank",
+        "size:": "100gal"
+    },
+    {
+        "id": 3,
+        "name": "Basement Tank",
+        "size:": "10gal"
+    }
+]
