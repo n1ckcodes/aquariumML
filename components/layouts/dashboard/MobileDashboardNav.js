@@ -28,7 +28,7 @@ export default function MobileDashboardNav(props) {
           </a>
         </Col>
         <Col xs={3}>
-          <a href="#">
+          <a href="/dashboard/settings">
             <FontAwesomeIcon icon="gear" />
           </a>
         </Col>
