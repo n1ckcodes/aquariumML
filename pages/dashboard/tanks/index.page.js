@@ -27,7 +27,7 @@ export default function Tanks({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row style={{height:"75%"}}>
+        <Row >
           {MockTankData.map(tank => {
             return <Col xs={6}>{tank.name}</Col>
           })}

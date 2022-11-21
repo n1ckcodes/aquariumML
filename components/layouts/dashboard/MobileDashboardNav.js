@@ -23,13 +23,13 @@ export default function MobileDashboardNav(props) {
           </a>
         </Col>
         <Col xs={3}>
-          <a href="#">
-            <FontAwesomeIcon icon="tools" />
+        <a href="#">
+          <FontAwesomeIcon icon="tools" />
           </a>
         </Col>
         <Col xs={3}>
-          <a href="/dashboard/settings">
-            <FontAwesomeIcon icon="gear" />
+        <a href="#">
+          <FontAwesomeIcon icon="gear" />
           </a>
         </Col>
       </Container>

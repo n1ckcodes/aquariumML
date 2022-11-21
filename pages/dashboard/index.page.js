@@ -33,7 +33,7 @@ export default function Home({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row style={{height:"75%"}}>
+        <Row >
           <p
             style={{
               fontSize:"3em",

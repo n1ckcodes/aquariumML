@@ -6,6 +6,11 @@ import "./globals.css";
 import faLib from "helpers/fontAwesome";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+//Do not remove or modify the font awesome imports below
+//This is required to prevent css issues with the lib when components use SSR
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
+config.autoAddCss = false; /* eslint-disable import/first */
 
 
 function App({ Component, pageProps }) {

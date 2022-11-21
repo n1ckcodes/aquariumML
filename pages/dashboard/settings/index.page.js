@@ -33,7 +33,7 @@ export default function Settings({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row style={{height:"75%"}}>
+        <Row>
             <p>Settings page...</p>
         
         </Row>
