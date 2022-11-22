@@ -11,7 +11,7 @@ export default function MobileDashboardNav(props) {
     <Nav
       className="flex-column"
       style={{
-        backgroundColor: "lightgray",
+        backgroundColor: "#d0cfcf",
         height: "100%",
         textAlign: "center",
       }}
