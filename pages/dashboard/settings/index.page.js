@@ -1,5 +1,7 @@
 import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import { withSessionSsr } from "helpers/ironSession";
+import Form from "react-bootstrap/Form";
+import { sortTanksByFilterOpts } from "data/constants";
 // import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 // import Col from "react-bootstrap/Col";
@@ -30,12 +32,19 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function Settings({ user }) {
+  console.log(sortTanksByFilterOpts)
   const renderController = () => {
     return (
       <MaintenanceDashboard>
         <Row>
-            <p>Settings page...</p>
-        
+          <p>Settings page...</p>
+          <p>
+            <Form.Select aria-label="Default select example">
+              {sortTanksByFilterOpts.map((opt) => (
+                <option value={opt}>{opt}</option>
+              ))}
+            </Form.Select>
+          </p>
         </Row>
       </MaintenanceDashboard>
     );

@@ -8,7 +8,7 @@ export default function MobileDashboardNav(props) {
   const { pathname } = useRouter();
   console.log("here");
   return (
-    <Navbar bg="primary" fixed="bottom" variant="dark" className="py-4">
+    <Navbar bg="primary" fixed="bottom" variant="dark" className="py-2">
       <Container style={{ textAlign: "center", color: "white" }}>
         <Col xs={3}>
           <a href="/dashboard">
