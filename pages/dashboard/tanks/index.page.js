@@ -1,7 +1,7 @@
 import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import { withSessionSsr } from "helpers/ironSession";
 import Row from "react-bootstrap/Row";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 import MockTankData from "data/mockTanks.json";
 import TankCard from "components/dashboard/TankCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -27,7 +27,6 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function Tanks({ user }) {
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -37,27 +36,37 @@ export default function Tanks({ user }) {
       <MaintenanceDashboard>
         <Row>
           <div style={{ float: "right" }}>
-            <FontAwesomeIcon icon="square-plus"  onClick={handleShow}/>
+            <FontAwesomeIcon icon="square-plus" onClick={handleShow} />
             add
+          </div>
+          <div style={{ float: "right" }}>
+            <FontAwesomeIcon icon="filter" onClick={handleShow} />
+            Sort by
           </div>
           <br />
         </Row>
-        <Row>
+        <Row style={{ margin: "0 auto" }}>
           {MockTankData.map((tank) => {
-            return <TankCard tank={tank} />;
+            return (
+              <div style={{ display:"flex", justifyContent:"center",width: "100%", marginBottom: "4vh"  }}>
+                <TankCard tank={tank} />
+              </div>
+            );
           })}
         </Row>
 
-        <Modal show={show} onHide={handleClose}   aria-labelledby="contained-modal-title-vcenter"
-      centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-
-        </Modal.Footer>
-      </Modal>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer></Modal.Footer>
+        </Modal>
       </MaintenanceDashboard>
     );
   };
