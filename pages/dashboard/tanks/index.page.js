@@ -1,6 +1,7 @@
 import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import { withSessionSsr } from "helpers/ironSession";
 import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col"
 import Card from "react-bootstrap/Card";
 import MockTankData from "data/mockTanks.json";
 import TankCard from "components/dashboard/TankCard";
@@ -34,18 +35,22 @@ export default function Tanks({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row>
-          <div style={{ float: "right" }}>
-            <FontAwesomeIcon icon="square-plus" onClick={handleShow} />
-            add
-          </div>
-          <div style={{ float: "right" }}>
-            <FontAwesomeIcon icon="filter" onClick={handleShow} />
+        <Row style={{paddingTop:"4vh"}}>
+        <Col xs={6}>
+          <div>
+            <FontAwesomeIcon style={{fontSize:"3em", color:"gray"}} icon="filter" onClick={handleShow} />
             Sort by
           </div>
-          <br />
+          </Col>
+          <Col xs={6}>
+          <div style={{ float: "right" }}>
+            <FontAwesomeIcon style={{fontSize:"3em", color:"green"}} icon="square-plus" onClick={handleShow} />
+            
+          </div>
+          </Col>
+
         </Row>
-        <Row style={{ margin: "0 auto" }}>
+        <Row style={{paddingTop:"4vh", margin: "0 auto" }}>
           {MockTankData.map((tank) => {
             return (
               <div style={{ display:"flex", justifyContent:"center",width: "100%", marginBottom: "4vh"  }}>
