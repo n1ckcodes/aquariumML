@@ -2,16 +2,19 @@
     {
         "id": 1,
         "name": "Office Tank",
-        "size:": "50gal"
+        "size:": "50gal",
+        "image": "testImage"
     },
     {
         "id": 2,
         "name": "Living Room Tank",
-        "size:": "100gal"
+        "size:": "100gal",
+        "image": "testImage"
     },
     {
         "id": 3,
         "name": "Basement Tank",
-        "size:": "10gal"
+        "size:": "10gal",
+        "image": "testImage"
     }
 ]

@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 export default function MobileDashboardNav(props) {
   const { pathname } = useRouter();
@@ -19,7 +17,7 @@ export default function MobileDashboardNav(props) {
         </Col>
         <Col xs={3}>
           <a href="/dashboard/tanks">
-            <FontAwesomeIcon icon="fish" />
+            <FontAwesomeIcon icon="note-sticky" />
           </a>
         </Col>
         <Col xs={3}>
