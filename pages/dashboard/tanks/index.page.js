@@ -35,7 +35,6 @@ export default function Tanks({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row style={{ paddingTop: "4vh" }}>
           <Col xs={6}>
             <div>
               <FontAwesomeIcon
@@ -55,8 +54,6 @@ export default function Tanks({ user }) {
               />
             </div>
           </Col>
-        </Row>
-        <Row style={{ paddingTop: "4vh", margin: "0 auto" }}>
           {MockTankData.map((tank) => {
             return (
               <Col xs={12} sm={6} md={4}>
@@ -73,7 +70,6 @@ export default function Tanks({ user }) {
               </Col>
             );
           })}
-        </Row>
 
         <Modal
           show={show}

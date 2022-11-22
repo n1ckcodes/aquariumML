@@ -5,23 +5,30 @@ import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
 import DesktopDashboardNav from "./DesktopDashboardNav";
 import MobileDashboardNav from "./MobileDashboardNav";
-import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 export default function MaintenanceDashboard({ children, user }) {
-
-
   return (
     <Layout>
       <Row style={{ height: "100%" }}>
-        {isBrowser ? 
+        {isBrowser ? (
           <Col sm={2} md={3} lg={4} xl={1}>
             <DesktopDashboardNav />
           </Col>
-         : null }
-
+        ) : null}
+        {isMobile ? (
+          <Col xs={2} style={{ padding: "0" }}>
+            <MobileDashboardNav />
+          </Col>
+        ) : (
+          <></>
+        )}
         <Col>{children}</Col>
-   
       </Row>
-      {isMobile ? <MobileDashboardNav /> : <></>}
     </Layout>
   );
 }
