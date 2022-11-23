@@ -14,19 +14,14 @@ import {
 export default function MaintenanceDashboard({ children, user }) {
   return (
     <Layout>
+      {isMobile ? <MobileDashboardNav /> : <></>}
       <Row style={{ height: "100%" }}>
         {isBrowser ? (
           <Col sm={2} md={3} lg={4} xl={1}>
             <DesktopDashboardNav />
           </Col>
         ) : null}
-        {isMobile ? (
-          <Col xs={2} style={{ padding: "0" }}>
-            <MobileDashboardNav />
-          </Col>
-        ) : (
-          <></>
-        )}
+
         <Col>{children}</Col>
       </Row>
     </Layout>
