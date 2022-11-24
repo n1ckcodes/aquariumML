@@ -8,27 +8,67 @@ export default function MobileDashboardNav(props) {
   const { pathname } = useRouter();
   console.log("here");
   return (
-      <Row style={{textAlign:"center", paddingTop:"3vh", paddingBottom:"3vh", marginBottom:"3vh", border:"thin solid black"}}>
-        <Col xs={3}>
-      <Nav.Link href="/dashboard">
-        <FontAwesomeIcon icon="home" />
-      </Nav.Link>
+    <Row style={{ textAlign: "center", height: "6vh" }}>
+      <Col
+        xs={3}
+        style={{
+          borderRight: "thin solid lightgray",
+          borderBottom: "thin solid lightgray",
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Nav.Link href="/dashboard">
+          <FontAwesomeIcon icon="home" />
+        </Nav.Link>
       </Col>
-      <Col xs={3}>
-      <Nav.Link href="/dashboard/tanks">
-        <FontAwesomeIcon icon="note-sticky" />
-      </Nav.Link>
+      <Col
+        xs={3}
+        style={{
+          borderRight: "thin solid lightgray",
+          borderBottom: "thin solid lightgray",
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Nav.Link href="/dashboard/tanks">
+          <FontAwesomeIcon icon="note-sticky" />
+        </Nav.Link>
       </Col>
-      <Col xs={3}>
-      <Nav.Link href="/dashboard/tools">
-        <FontAwesomeIcon icon="tools" />
-      </Nav.Link>
+      <Col
+        xs={3}
+        style={{
+          borderRight: "thin solid lightgray",
+          borderBottom: "thin solid lightgray",
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Nav.Link href="/dashboard/tools">
+          <FontAwesomeIcon icon="tools" />
+        </Nav.Link>
       </Col>
-      <Col xs={3}>
-      <Nav.Link href="/dashboard/settings">
-        <FontAwesomeIcon icon="gear" />
-      </Nav.Link>
+      <Col
+        xs={3}
+        style={{
+          borderRight: "thin solid lightgray",
+          borderBottom: "thin solid lightgray",
+          display: "flex",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Nav.Link href="/dashboard/settings">
+          <FontAwesomeIcon icon="gear" />
+        </Nav.Link>
       </Col>
-      </Row>
+    </Row>
   );
 }
