@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Nav, Row, Col } from "react-bootstrap";
 import styles from "./MobileDashboard.module.css";
@@ -20,9 +21,11 @@ export default function MobileDashboardNav() {
           padding: "0px",
         }}
       >
-        <Nav.Link href="/dashboard" className={styles.mobileNavBtn}>
-          <FontAwesomeIcon icon="home" />
-        </Nav.Link>
+        <Link href="/dashboard">
+          <a className={styles.mobileNavBtn}>
+            <FontAwesomeIcon icon="home" />
+          </a>
+        </Link>
       </Col>
       <Col
         xs={3}
@@ -34,9 +37,11 @@ export default function MobileDashboardNav() {
           padding: "0px",
         }}
       >
-        <Nav.Link href="/dashboard/tanks" className={styles.mobileNavBtn}>
-          <FontAwesomeIcon icon="note-sticky" />
-        </Nav.Link>
+        <Link href="/dashboard/tanks">
+          <a className={styles.mobileNavBtn}>
+            <FontAwesomeIcon icon="note-sticky" />
+          </a>
+        </Link>
       </Col>
       <Col
         xs={3}
@@ -48,9 +53,11 @@ export default function MobileDashboardNav() {
           padding: "0px",
         }}
       >
-        <Nav.Link href="/dashboard/tools" className={styles.mobileNavBtn}>
-          <FontAwesomeIcon icon="tools" />
-        </Nav.Link>
+        <Link href="/dashboard/tools">
+          <a className={styles.mobileNavBtn}>
+            <FontAwesomeIcon icon="tools" />
+          </a>
+        </Link>
       </Col>
       <Col
         xs={3}
@@ -62,9 +69,11 @@ export default function MobileDashboardNav() {
           padding: "0px",
         }}
       >
-        <Nav.Link href="/dashboard/settings" className={styles.mobileNavBtn}>
-          <FontAwesomeIcon icon="gear" />
-        </Nav.Link>
+        <Link href="/dashboard/settings">
+          <a className={styles.mobileNavBtn}>
+            <FontAwesomeIcon icon="gear" />
+          </a>
+        </Link>
       </Col>
     </Row>
   );

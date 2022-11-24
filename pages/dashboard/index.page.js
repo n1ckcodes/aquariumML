@@ -11,23 +11,23 @@ import Row from "react-bootstrap/Row";
 // import Hero1 from "../public/images/hero.png";
 // import HeroCarousel from "../components/carousel";
 
-export const getServerSideProps = withSessionSsr(
-  async function getServerSideProps({ req }) {
-    // if (!req.session.user) {
-    //   return {
-    //     redirect: {
-    //       permanent: false,
-    //       destination: "/",
-    //     },
-    //   };
-    // }
-    return {
-      props: {
-        user: req.session.user || null,
-      },
-    };
-  }
-);
+// export const getServerSideProps = withSessionSsr(
+//   async function getServerSideProps({ req }) {
+//     // if (!req.session.user) {
+//     //   return {
+//     //     redirect: {
+//     //       permanent: false,
+//     //       destination: "/",
+//     //     },
+//     //   };
+//     // }
+//     return {
+//       props: {
+//         user: req.session.user || null,
+//       },
+//     };
+//   }
+// );
 
 export default function Home({ user }) {
   const renderController = () => {
