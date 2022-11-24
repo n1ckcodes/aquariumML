@@ -1,4 +1,4 @@
-const loginSchema = {
+const LoginSchema = {
   type: "object",
   properties: {
     username: { type: "string" },

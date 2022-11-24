@@ -8,26 +8,28 @@ import TankCard from "components/dashboard/TankCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import axios from 'axios'
 
-// export const getServerSideProps = withSessionSsr(
-//   async function getServerSideProps({ req }) {
-//     // if (!req.session.user) {
-//     //   return {
-//     //     redirect: {
-//     //       permanent: false,
-//     //       destination: "/",
-//     //     },
-//     //   };
-//     // }
-//     return {
-//       props: {
-//         user: req.session.user || null,
-//       },
-//     };
-//   }
-// );
+export const getServerSideProps = withSessionSsr(
+  async function getServerSideProps({ req }) {
+    // if (!req.session.user) {
+    //   return {
+    //     redirect: {
+    //       permanent: false,
+    //       destination: "/",
+    //     },
+    //   };
+    // }
+    return {
+      props: {
+        user: req.session.user || null,
+      },
+    };
+  }
+);
 
 export default function Tanks({ user }) {
+  console.log(user )
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);

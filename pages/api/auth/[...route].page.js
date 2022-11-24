@@ -1,7 +1,7 @@
 import nc from "next-connect";
 import { withSessionRoute } from "helpers/ironSession";
-import { createUser, getUserByUsername } from "db/userQueries";
-import { LoginSchema, RegistrationSchema } from "schemas";
+import { createUser, getUserByUsername } from "pages/api/db/userQueries";
+import { LoginSchema, RegistrationSchema } from "./schemas";
 const { validate } = require("jsonschema");
 const bcrypt = require("bcrypt");
 
