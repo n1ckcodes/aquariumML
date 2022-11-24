@@ -9,23 +9,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
-export const getServerSideProps = withSessionSsr(
-  async function getServerSideProps({ req }) {
-    // if (!req.session.user) {
-    //   return {
-    //     redirect: {
-    //       permanent: false,
-    //       destination: "/",
-    //     },
-    //   };
-    // }
-    return {
-      props: {
-        user: req.session.user || null,
-      },
-    };
-  }
-);
+// export const getServerSideProps = withSessionSsr(
+//   async function getServerSideProps({ req }) {
+//     // if (!req.session.user) {
+//     //   return {
+//     //     redirect: {
+//     //       permanent: false,
+//     //       destination: "/",
+//     //     },
+//     //   };
+//     // }
+//     return {
+//       props: {
+//         user: req.session.user || null,
+//       },
+//     };
+//   }
+// );
 
 export default function Tanks({ user }) {
   const [show, setShow] = useState(false);
