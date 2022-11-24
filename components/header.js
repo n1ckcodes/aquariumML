@@ -6,7 +6,6 @@ import Popover from "react-bootstrap/Popover";
 import { useRouter } from "next/router";
 import Login from "./auth/login";
 import Register from "./auth/register";
-import Image from 'react-bootstrap/Image'
 export default function Header({ user }) {
   console.log(user);
   const router = useRouter();
@@ -34,7 +33,7 @@ export default function Header({ user }) {
                 </Popover>
               }
             >
-              <Nav.Link eventKey={2} href="#memes" className="ml-auto">
+              <Nav.Link eventKey={2} href="#memes">
                 Login
               </Nav.Link>
             </OverlayTrigger>
@@ -56,9 +55,9 @@ export default function Header({ user }) {
             </OverlayTrigger>
           </Nav>
         ) : (
-          <Nav>
-            <Nav.Link href="#pri123cing"><Image style={{height:"25px"}}fluid src="/images/fish.png"  thumbnail></Image>Welcome back, {user.username}</Nav.Link>
-            <Nav.Link eventKey={1} href="/api/auth/logout">
+          <Nav className="ms-auto">
+         
+            <Nav.Link eventKey={1} href="/api/auth/logout"  >
               Logout
             </Nav.Link>
           </Nav>

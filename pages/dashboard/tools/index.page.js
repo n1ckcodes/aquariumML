@@ -34,11 +34,10 @@ export default function Tools({ user }) {
   const handleShow = () => setShow(true);
   const renderController = () => {
     return (
-      <MaintenanceDashboard>
-<Row>
+      <MaintenanceDashboard user={user}>
+        <Row>
           {MockTools.map((tank) => {
             return (
-              
               <Col xs={6} sm={6} md={4}>
                 <div
                   style={{
@@ -53,7 +52,7 @@ export default function Tools({ user }) {
               </Col>
             );
           })}
-</Row>
+        </Row>
         <Modal
           show={show}
           onHide={handleClose}

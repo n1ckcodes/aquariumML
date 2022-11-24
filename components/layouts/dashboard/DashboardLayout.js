@@ -27,8 +27,9 @@ export default function MaintenanceDashboard({ children, user }) {
     };
   }, []);
 
+  console.log(user)
   return (
-    <Layout>
+    <Layout user={user}>
       {mobileView ? <MobileDashboardNav /> : <></>}
       <Row style={{ height: "100%" }}>
         {!mobileView ? (

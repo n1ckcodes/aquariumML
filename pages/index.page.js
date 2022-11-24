@@ -1,6 +1,5 @@
 import { withSessionSsr } from "helpers/ironSession";
 import Layout from "components/layouts/MasterLayout";
-import Row from "react-bootstrap/Row";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -21,11 +20,5 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function Home({ user }) {
-  const renderController = () => {
-    return (
-      <Layout user={user}>
-      </Layout>
-    );
-  };
-  return <html>{renderController()}</html>;
+  return <Layout user={user}></Layout>;
 }

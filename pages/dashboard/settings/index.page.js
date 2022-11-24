@@ -32,10 +32,10 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function Settings({ user }) {
-  console.log(sortTanksByFilterOpts)
+
   const renderController = () => {
     return (
-      <MaintenanceDashboard>
+      <MaintenanceDashboard user={user}>
         <Row>
           <p>Settings page...</p>
           <p>

@@ -3,10 +3,11 @@ import Head from "next/head";
 import { UserContextProvider } from "context/UserContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./globals.css";
-import faLib from "helpers/fontAwesome";
+
 
 //Do not remove or modify the font awesome imports below
 //This is required to prevent css issues with the lib when components use SSR
+import faLib from "helpers/fontAwesome";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false; /* eslint-disable import/first */

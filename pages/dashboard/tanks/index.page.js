@@ -36,7 +36,7 @@ export default function Tanks({ user }) {
   const handleShow = () => setShow(true);
   const renderController = () => {
     return (
-      <MaintenanceDashboard>
+      <MaintenanceDashboard user={user}>
           <Col xs={6}>
             <div>
               <FontAwesomeIcon
