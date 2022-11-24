@@ -1,12 +1,9 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Nav from "react-bootstrap/Nav";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-export default function MobileDashboardNav(props) {
+import {Nav, Row, Col} from "react-bootstrap";
+
+export default function MobileDashboardNav() {
   const { pathname } = useRouter();
-  console.log(pathname);
   return (
     <Row style={{ textAlign: "center", height: "6vh" }}>
       <Col
@@ -14,7 +11,7 @@ export default function MobileDashboardNav(props) {
         style={{
           background:
             pathname == "/dashboard/home" || pathname == "/dashboard"
-              ? "blue"
+              ? "#0096FF"
               : "white",
           borderRight: "thin solid lightgray",
           borderBottom: "thin solid lightgray",
@@ -37,10 +34,7 @@ export default function MobileDashboardNav(props) {
       <Col
         xs={3}
         style={{
-          background:
-            pathname == "/dashboard/tanks"
-              ? "blue"
-              : "white",
+          background: pathname == "/dashboard/tanks" ? "#0096FF" : "white",
           borderRight: "thin solid lightgray",
           borderBottom: "thin solid lightgray",
         }}
@@ -62,10 +56,7 @@ export default function MobileDashboardNav(props) {
       <Col
         xs={3}
         style={{
-          background:
-            pathname == "/dashboard/tools" 
-              ? "blue"
-              : "white",
+          background: pathname == "/dashboard/tools" ? "#0096FF" : "white",
           borderRight: "thin solid lightgray",
           borderBottom: "thin solid lightgray",
         }}
@@ -87,10 +78,7 @@ export default function MobileDashboardNav(props) {
       <Col
         xs={3}
         style={{
-          background:
-            pathname == "/dashboard/settings" 
-              ? "blue"
-              : "white",
+          background: pathname == "/dashboard/settings" ? "#0096FF" : "white",
           borderRight: "thin solid lightgray",
           borderBottom: "thin solid lightgray",
         }}
