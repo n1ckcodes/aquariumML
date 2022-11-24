@@ -15,14 +15,14 @@ import Row from "react-bootstrap/Row";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
-    // if (!req.session.user) {
-    //   return {
-    //     redirect: {
-    //       permanent: false,
-    //       destination: "/",
-    //     },
-    //   };
-    // }
+    if (!req.session.user) {
+      return {
+        redirect: {
+          permanent: false,
+          destination: "/",
+        },
+      };
+    }
     return {
       props: {
         user: req.session.user || null,

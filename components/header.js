@@ -11,7 +11,7 @@ export default function Header({ user }) {
   console.log(user);
   const router = useRouter();
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="py-2">
+    <Navbar  bg="dark" variant="dark" className="py-2">
       <Navbar.Brand href="#home">
         <Link href="/" className="header-nav-brand-link">
           <a>
@@ -19,39 +19,9 @@ export default function Header({ user }) {
           </a>
         </Link>
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="me-auto">
-          {/* <Nav.Link href="#features">Articles</Nav.Link>
-          <Nav.Link href="pricfadsfing">Guides</Nav.Link>
-          <Nav.Link href="#prifdfacing">Fish</Nav.Link>
-          <Nav.Link href="#prifdfafdfscing">Plants</Nav.Link>
-          <Nav.Link href="#pri123cing">Pictures</Nav.Link>
-          <NavDropdown title="Tools" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">
-              Water change calculator
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Temperature conversions
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/maintenance">
-              Maintenance Logger
-            </NavDropdown.Item>
-          </NavDropdown> */}
-        </Nav>
-        {/* <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
+  
         {!user ? (
-          <Nav>
+          <Nav className=" ms-auto">
             <OverlayTrigger
               rootClose
               trigger="click"
@@ -64,7 +34,7 @@ export default function Header({ user }) {
                 </Popover>
               }
             >
-              <Nav.Link eventKey={2} href="#memes">
+              <Nav.Link eventKey={2} href="#memes" className="ml-auto">
                 Login
               </Nav.Link>
             </OverlayTrigger>
@@ -93,7 +63,7 @@ export default function Header({ user }) {
             </Nav.Link>
           </Nav>
         )}
-      </Navbar.Collapse>
+
     </Navbar>
   );
 }

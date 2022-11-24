@@ -33,7 +33,8 @@ export default function Home({ user }) {
   const renderController = () => {
     return (
       <MaintenanceDashboard>
-        <Row >
+        <Row >skateboard1
+          
           <p
             style={{
               fontSize:"3em",
