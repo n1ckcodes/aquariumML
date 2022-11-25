@@ -27,14 +27,14 @@ export default function Home({ user }) {
       <Row>
         <p
           style={{
-            fontSize: "3em",
+            fontSize: "1em",
             display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
           }}
         >
-          <p>Empty graphs that will say no data avail</p>
+       Days until next water change
+    
         </p>
+        <p>Reminders</p>
       </Row>
     </DashboardLayout>
   );

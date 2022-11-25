@@ -3,7 +3,7 @@ import { db } from "./dbConfig";
 const createUser = (email, username, pwhash) => {
   return db
     .query(
-      `INSERT INTO "User"("email", "username", "password") VALUES($1, $2, $3)`,
+      `INSERT INTO "User"("Email", "Username", "Password") VALUES($1, $2, $3)`,
       [email, username, pwhash]
     )
     .then(() => {
@@ -25,7 +25,7 @@ const createUser = (email, username, pwhash) => {
 
 const getUserByUsername = (username) => {
   return db
-    .one(`SELECT * from "User" WHERE "username" = $1`, [username])
+    .one(`SELECT * from "User" WHERE "Username" = $1`, [username])
     .catch((e) => {
       console.error(e);
       if (e.received == 0) {

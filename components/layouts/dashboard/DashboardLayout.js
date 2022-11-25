@@ -7,7 +7,10 @@ import MobileDashboardNav from "./MobileDashboardNav";
 export default function MaintenanceDashboard({ children, user }) {
   const [state, setState] = useState({
     mobileView: null,
-    isReady: false
+    //required because there is sometimes a slight delay determining window size which can cause the wrong
+    //component to render and cause a brief flicker
+    //do not render anything until viewport is determined
+    isReady: false,
   });
 
   const { mobileView, isReady } = state;
@@ -15,12 +18,19 @@ export default function MaintenanceDashboard({ children, user }) {
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 600
-        ? setState((prevState) => ({ ...prevState, mobileView: true, isReady: true }))
-        : setState((prevState) => ({ ...prevState, mobileView: false, isReady: true }));
+        ? setState((prevState) => ({
+            ...prevState,
+            mobileView: true,
+            isReady: true,
+          }))
+        : setState((prevState) => ({
+            ...prevState,
+            mobileView: false,
+            isReady: true,
+          }));
     };
 
     setResponsiveness();
-
     window.addEventListener("resize", () => setResponsiveness());
 
     return () => {

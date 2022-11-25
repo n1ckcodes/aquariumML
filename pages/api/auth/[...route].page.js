@@ -55,7 +55,7 @@ handler.post("/api/auth/login", async (req, res) => {
     return res.status(400).json(payload.errors.map((err) => err.stack));
   }
   const { username, password } = req.body;
-  return getUserByUsername(username).then(async (user) => {
+  return getUserByUsername(username.toLowerCase()).then(async (user) => {
     if (!user) {
       return res.status(401).end("Invalid username or password");
     } else {

@@ -20,5 +20,5 @@ export const getServerSideProps = withSessionSsr(
 );
 
 export default function Home({ user }) {
-  return <Layout user={user}></Layout>;
+  return <Layout user={user}>You are not logged in</Layout>;
 }
