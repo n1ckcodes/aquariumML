@@ -24,6 +24,20 @@ const createTank = (userId, name, size, type, location, dateStarted) => {
     });
 };
 
+const getTanksByUserId = (userId) => {
+    return db
+      .any(`SELECT * from "Tank" WHERE "UserID" = $1`, [userId])
+      .catch((e) => {
+        console.error(e);
+        if (e.received == 0) {
+          return false;
+        } else {
+          throw new Error("Login error. Please try again.");
+        }
+      });
+  };
+
 module.exports = {
     createTank,
+    getTanksByUserId,
 };

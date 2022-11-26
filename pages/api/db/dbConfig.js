@@ -9,7 +9,6 @@ if (process.env.NODE_ENV === "development") {
   ssl = { rejectUnauthorized: false };
 }
 
-console.log(process.env.NODE_ENV);
 const config = {
   max: 30,
   connectionString:

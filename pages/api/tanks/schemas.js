@@ -1,10 +1,10 @@
 const CreateTankSchema = {
-    // type: "object",
-    // properties: {
-    //   username: { type: "string" },
-    //   password: { type: "string" },
-    // },
-    // required: ["username", "password"],
+    type: "object",
+    properties: {
+      userId: {"type": "integer", "minimum": 1},
+      name: { type: "string" },
+    },
+    required: ["userId", "name"],
   };
   
 

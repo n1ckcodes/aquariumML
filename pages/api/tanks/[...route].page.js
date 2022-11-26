@@ -1,6 +1,7 @@
 import nc from "next-connect";
 import { withSessionRoute } from "helpers/ironSession";
-import { createTank } from "pages/api/db/tankQueries";
+import { createTank, getTanksByUserId } from "pages/api/db/tankQueries";
+import { CreateTankSchema } from "./schemas";
 const { validate } = require("jsonschema");
 
 const handler = nc({
@@ -16,26 +17,37 @@ const handler = nc({
 });
 
 //Get single users tanks
-handler.get("/api/tanks/:userId/tanks", async (req, res) => {});
+handler.get("/api/tanks/user/:userId/all", async (req, res) => {
+  const results = await getTanksByUserId(req.params.userId);
+  return res.send(results);
+});
 
 //Get single user tank by ID
-handler.get("/api/tanks/:userId/tank/:tankId", async (req, res) => {});
+handler.get("/api/tanks/user/:userId/tank/:tankId", async (req, res) => {});
 
 //Update specific tank owned by a user
-handler.put("/api/tanks/:userId/tank/:tankId", async (req, res) => {});
+handler.put("/api/tanks/user/:userId/tank/:tankId", async (req, res) => {});
 
 //Create a new tank
 handler.post("/api/tanks/add", async (req, res) => {
-  if (!req.session.user){
-    res.status(401).send('Not logged in.')
-  }
-  const { userId, name, size, type, location, dateStarted} = req.body
+  const payload = validate(req.body, CreateTankSchema);
 
-  if (req.session.user.uid != userId){
-    res.status(401).send('Unable to add tank.')
+  if (!payload.valid) {
+    return res.status(400).json(payload.errors.map((err) => err.stack));
   }
 
-  await createTank(userId, name, size, type, location, dateStarted)
+  //TODO: move this to middleware?
+  if (!req.session.user) {
+    res.status(401).send("Not logged in.");
+  }
+  const { userId, name, size, type, location, dateStarted } = req.body;
+
+  //TODO: need better way of handling this
+  if (req.session.user.uid != userId) {
+    res.status(401).send("Unable to add tank.");
+  }
+
+  await createTank(userId, name, size, type, location, dateStarted);
   return res.status(201).send("Tank added.");
 });
 
