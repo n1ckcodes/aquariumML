@@ -39,14 +39,15 @@ handler.use(routeAuthentication).post("/api/tanks/add", async (req, res) => {
     return res.status(400).json(payload.errors.map((err) => err.stack));
   }
 
-  const { userId, name, size, type, location, dateStarted } = req.body;
+  const {  name, size, location, dateStarted } = req.body;
 
   //TODO: need better way of handling this
-  if (req.session.user.uid != userId) {
-    res.status(401).send("Unable to add tank.");
-  }
+  // if (req.session.user.uid != userId) {
+  //   res.status(401).send("Unable to add tank.");
+  // }
+  const userId = req.session.user.UID
 
-  await createTank(userId, name, size, type, location, dateStarted);
+  await createTank(userId, name, size, location, dateStarted);
   return res.status(201).send("Tank added.");
 });
 

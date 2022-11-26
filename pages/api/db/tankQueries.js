@@ -3,8 +3,8 @@ import { db } from "./dbConfig";
 const createTank = (userId, name, size, type, location, dateStarted) => {
   return db
     .query(
-      `INSERT INTO "Tank"("UserID", "Name", "Size", "Type", "Location", "DateStarted") VALUES($1, $2, $3, $4, $5, $6)`,
-      [userId, name, size, type, location, dateStarted]
+      `INSERT INTO "Tank"("UserID", "Name", "Size", "Location", "DateStarted") VALUES($1, $2, $3, $4, $5)`,
+      [userId, name, size, location, dateStarted]
     )
     .then(() => {
       return true;

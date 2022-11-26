@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useFormik } from "formik";
+import axios from "axios";
 
 export default function AddTankModal({ show, handleClose }) {
   const [registrationError, setRegistrationError] = useState(false);
@@ -26,13 +27,13 @@ export default function AddTankModal({ show, handleClose }) {
     },
     validate,
     onSubmit: (values) => {
-      const { name, password, email } = values;
+      const { name, size, location, dateStarted } = values;
       axios
-        .post("/api/auth/a", {
+        .post("/api/tanks/add", {
           name: name,
-          password: password,
-          email: email,
-          name: name,
+          size: size,
+          location: location,
+          dateStarted: dateStarted,
         })
         .then((response) => {
           if (response.data.status === "failure") {

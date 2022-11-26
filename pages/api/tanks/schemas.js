@@ -4,7 +4,7 @@ const CreateTankSchema = {
       userId: {"type": "integer", "minimum": 1},
       name: { type: "string" },
     },
-    required: ["userId", "name"],
+    required: [ "name"],
   };
   
 
