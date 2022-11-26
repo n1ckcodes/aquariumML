@@ -3,8 +3,8 @@ import { withSessionRoute } from "helpers/ironSession";
 import { createTank, getTanksByUserId } from "pages/api/db/tankQueries";
 import { CreateTankSchema } from "./schemas";
 const { validate } = require("jsonschema");
+import { routeAuthentication } from "../middleware";
 
-import { withAuthentication } from "../middleware";
 const handler = nc({
   attachParams: true,
   onError: (err, req, res, next) => {
@@ -19,7 +19,7 @@ const handler = nc({
 
 //Get single users tanks
 handler
-  .use(withAuthentication)
+  .use(routeAuthentication)
   .get("/api/tanks/user/:userId/all", async (req, res) => {
     const results = await getTanksByUserId(req.params.userId);
     return res.send(results);
@@ -32,7 +32,7 @@ handler.get("/api/tanks/user/:userId/tank/:tankId", async (req, res) => {});
 handler.put("/api/tanks/user/:userId/tank/:tankId", async (req, res) => {});
 
 //Create a new tank
-handler.use(withAuthentication).post("/api/tanks/add", async (req, res) => {
+handler.use(routeAuthentication).post("/api/tanks/add", async (req, res) => {
   const payload = validate(req.body, CreateTankSchema);
 
   if (!payload.valid) {

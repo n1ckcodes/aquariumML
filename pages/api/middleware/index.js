@@ -1,12 +1,12 @@
-const withAuthentication = (req, res, next) => {
+const routeAuthentication = (req, res, next) => {
     if (!req.session.user) {
-      return res.status(401).json({ message: "You are unauthorized" });
+      return res.status(401).json({ message: "Invalid API key or login" });
     }
   
     return next();
   };
 
   module.exports = {
-    withAuthentication
+    routeAuthentication
   };
   
