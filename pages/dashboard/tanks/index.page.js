@@ -47,10 +47,10 @@ export default function Tanks({ user }) {
   useEffect(async () => {
     //TODO: handle errors   
     //TODO: use an isLoading state var so that "No tanks avail doesn't flicker while api call is being made"
-  //   const tanks = await getUserTanks();
-  //   setUserTanks(tanks);
-  // }, [userTanks]);
-  }, [])
+    const tanks = await getUserTanks();
+    setUserTanks(tanks);
+  }, []);
+
   const [registrationError, setRegistrationError] = useState(false);
   const validate = (values) => {
     const errors = {};
