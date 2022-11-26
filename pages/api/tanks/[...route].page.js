@@ -26,9 +26,17 @@ handler.put("/api/tanks/:userId/tank/:tankId", async (req, res) => {});
 
 //Create a new tank
 handler.post("/api/tanks/add", async (req, res) => {
+  if (!req.session.user){
+    res.status(401).send('Not logged in.')
+  }
   const { userId, name, size, type, location, dateStarted} = req.body
+
+  if (req.session.user.uid != userId){
+    res.status(401).send('Unable to add tank.')
+  }
+
   await createTank(userId, name, size, type, location, dateStarted)
-  return res.status(201).send("ok");
+  return res.status(201).send("Tank added.");
 });
 
 export default withSessionRoute(handler);
