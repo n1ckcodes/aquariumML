@@ -25,6 +25,7 @@ const createTank = (userId, name, size, type, location, dateStarted) => {
 };
 
 const getTanksByUserId = (userId) => {
+    console.log(userId)
     return db
       .any(`SELECT * from "Tank" WHERE "UserID" = $1`, [userId])
       .catch((e) => {

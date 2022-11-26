@@ -34,7 +34,7 @@ export default function Tools({ user }) {
     return (
       <MaintenanceDashboard user={user}>
         <Row>
-          {MockTools.map((tank) => {
+          {MockTools.map((Tank) => {
             return (
               <Col xs={6} sm={6} md={4}>
                 <div
@@ -45,7 +45,7 @@ export default function Tools({ user }) {
                     marginBottom: "4vh",
                   }}
                 >
-                  <TankCard tank={tank} />
+                  <TankCard Tank={Tank} />
                 </div>
               </Col>
             );

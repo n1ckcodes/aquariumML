@@ -6,6 +6,8 @@ const sessionOptions = {
   cookieName: "aquariumML",
   // secure: true should be used in production (HTTPS) but can't be used in development (HTTP)
   cookieOptions: {
+    //will expire session after browser is closed
+    maxAge: undefined,
     secure: process.env.NODE_ENV === "production",
   },
 };

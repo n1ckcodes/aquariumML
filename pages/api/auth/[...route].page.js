@@ -54,16 +54,16 @@ handler.post("/api/auth/login", async (req, res) => {
   if (!payload.valid) {
     return res.status(400).json(payload.errors.map((err) => err.stack));
   }
-  const { username, password } = req.body;
-  return getUserByUsername(username.toLowerCase()).then(async (user) => {
-    if (!user) {
+  const { username, password } = req.body; 
+  return getUserByUsername(username).then(async (User) => {
+    if (!User) {
       return res.status(401).end("Invalid username or password");
     } else {
-      const match = await bcrypt.compare(password, user.password);
+      const match = await bcrypt.compare(password, User.Password);
       if (match) {
         req.session.user = {
-          uid: user.user_id,
-          username: user.username,
+          UID: User.UserID,
+          Username: User.Username,
         };
         await req.session.save();
         return res.status(200).end("Logged in");
