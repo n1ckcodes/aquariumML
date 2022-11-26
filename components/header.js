@@ -7,10 +7,9 @@ import { useRouter } from "next/router";
 import Login from "./auth/login";
 import Register from "./auth/register";
 export default function Header({ user }) {
-  console.log(user);
   const router = useRouter();
   return (
-    <Navbar  bg="dark" variant="dark" className="py-2">
+    <Navbar bg="dark" variant="dark" className="py-2">
       <Navbar.Brand href="#home">
         <Link href="/" className="header-nav-brand-link">
           <a>
@@ -18,51 +17,49 @@ export default function Header({ user }) {
           </a>
         </Link>
       </Navbar.Brand>
-  
-        {!user ? (
-          <Nav className=" ms-auto">
-            <OverlayTrigger
-              rootClose
-              trigger="click"
-              placement="bottom"
-              overlay={
-                <Popover id={`popover-positioned-bottom`}>
-                  <Popover.Body>
-                    <Login />
-                  </Popover.Body>
-                </Popover>
-              }
-            >
-              <Nav.Link eventKey={2} href="#memes">
-                Login
-              </Nav.Link>
-            </OverlayTrigger>
-            <OverlayTrigger
-              rootClose
-              trigger="click"
-              placement="bottom"
-              overlay={
-                <Popover id={`popover-positioned-bottom`}>
-                  <Popover.Body>
-                    <Register />
-                  </Popover.Body>
-                </Popover>
-              }
-            >
-              <Nav.Link eventKey={1} href="#rfdsa">
-                Register
-              </Nav.Link>
-            </OverlayTrigger>
-          </Nav>
-        ) : (
-          <Nav className="ms-auto">
-         
-            <Nav.Link eventKey={1} href="/api/auth/logout"  >
-              Logout
-            </Nav.Link>
-          </Nav>
-        )}
 
+      {!user ? (
+        <Nav className=" ms-auto">
+          <OverlayTrigger
+            rootClose
+            trigger="click"
+            placement="bottom"
+            overlay={
+              <Popover id={`popover-positioned-bottom`}>
+                <Popover.Body>
+                  <Login />
+                </Popover.Body>
+              </Popover>
+            }
+          >
+            <Nav.Link eventKey={2} href="#memes">
+              Login
+            </Nav.Link>
+          </OverlayTrigger>
+          <OverlayTrigger
+            rootClose
+            trigger="click"
+            placement="bottom"
+            overlay={
+              <Popover id={`popover-positioned-bottom`}>
+                <Popover.Body>
+                  <Register />
+                </Popover.Body>
+              </Popover>
+            }
+          >
+            <Nav.Link eventKey={1} href="#rfdsa">
+              Register
+            </Nav.Link>
+          </OverlayTrigger>
+        </Nav>
+      ) : (
+        <Nav className="ms-auto">
+          <Nav.Link eventKey={1} href="/api/auth/logout">
+            Logout
+          </Nav.Link>
+        </Nav>
+      )}
     </Navbar>
   );
 }
