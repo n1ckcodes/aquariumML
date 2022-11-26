@@ -3,7 +3,7 @@ import { withSessionRoute } from "helpers/ironSession";
 import { createTank, getTanksByUserId } from "pages/api/db/tankQueries";
 import { CreateTankSchema } from "./schemas";
 const { validate } = require("jsonschema");
-import { routeAuthentication } from "../middleware";
+import { routeAuthentication } from "pages/api/middleware";
 
 const handler = nc({
   attachParams: true,
