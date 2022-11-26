@@ -1,15 +1,11 @@
-import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import { withSessionSsr } from "helpers/ironSession";
-import Col from "react-bootstrap/Col";
-import TankCard from "components/dashboard/TankCard";
+import { Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
-import Modal from "react-bootstrap/Modal";
 import axios from "axios";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import { useFormik } from "formik";
+import MaintenanceDashboard from "components/layouts/dashboard/DashboardLayout";
 import AddTankModal from "components/dashboard/AddTankModal";
+import TankCard from "components/dashboard/TankCard";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -32,12 +28,12 @@ export const getServerSideProps = withSessionSsr(
 export default function Tanks({ user }) {
   const getUserTanks = async () => {
     return axios
-      .get(`/api/tanks/user/${user.UID}/all`, {})
+      .get(`/api/tanks/user/${user.UID}/all`)
       .then((results) => {
         return results.data;
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
       });
   };
   const [show, setShow] = useState(false);

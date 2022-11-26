@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useFormik } from "formik";
 
@@ -53,6 +53,7 @@ export default function AddTankModal({ show, handleClose }) {
       onHide={handleClose}
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      backdrop="static"
       keyboard={false}
     >
       <Modal.Header closeButton>
@@ -79,6 +80,24 @@ export default function AddTankModal({ show, handleClose }) {
               onChange={formik.handleChange}
               value={formik.values.size}
               name="size"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Location</Form.Label>
+            <Form.Control
+              type="text"
+              onChange={formik.handleChange}
+              value={formik.values.location}
+              name="location"
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Date Started</Form.Label>
+            <Form.Control
+              type="date"
+              onChange={formik.handleChange}
+              value={formik.values.dateStarted}
+              name="dateStarted"
             />
           </Form.Group>
 
