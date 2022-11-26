@@ -9,6 +9,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useFormik } from "formik";
+import AddTankModal from "components/dashboard/AddTankModal";
 
 export const getServerSideProps = withSessionSsr(
   async function getServerSideProps({ req }) {
@@ -41,66 +42,26 @@ export default function Tanks({ user }) {
   };
   const [show, setShow] = useState(false);
   const [userTanks, setUserTanks] = useState([]);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => {
+    setShow(false);
+  };
 
   useEffect(async () => {
-    //TODO: handle errors   
+    //TODO: handle errors
     //TODO: use an isLoading state var so that "No tanks avail doesn't flicker while api call is being made"
     const tanks = await getUserTanks();
     setUserTanks(tanks);
   }, []);
 
-  const [registrationError, setRegistrationError] = useState(false);
-  const validate = (values) => {
-    const errors = {};
-
-    if (!values.size) {
-      errors.name = "Tank size is required";
-    }
-
-    if (!values.name) {
-      errors.name = "Tank name is required";
-    }
-    return errors;
-  };
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      name: "",
-    },
-    validate,
-    onSubmit: (values) => {
-      const { name, password, email } = values;
-      axios
-        .post("/api/auth/a", {
-          name: name,
-          password: password,
-          email: email,
-          name: name,
-        })
-        .then((response) => {
-          if (response.data.status === "failure") {
-            setRegistrationError(response.data.msg);
-          }
-          console.log(props);
-          props.refreshData();
-        })
-        .catch((error) => {
-          console.log(error);
-          setRegistrationError(error.response.data);
-        });
-    },
-  });
-
   return (
     <MaintenanceDashboard user={user}>
+      {show && <AddTankModal show={show} handleClose={handleClose} />}
       <Col xs={6}>
         <div>
           <FontAwesomeIcon
             style={{ fontSize: "3em", color: "gray" }}
             icon="filter"
-            onClick={handleShow}
+            onClick={() => setShow(true)}
           />
           Sort by
         </div>
@@ -110,7 +71,7 @@ export default function Tanks({ user }) {
           <FontAwesomeIcon
             style={{ fontSize: "3em", color: "green" }}
             icon="square-plus"
-            onClick={handleShow}
+            onClick={() => setShow(true)}
           />
         </div>
       </Col>
@@ -134,62 +95,6 @@ export default function Tanks({ user }) {
       ) : (
         <p>No tanks found</p>
       )}
-
-      <Modal
-        show={show}
-        onHide={handleClose}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Add Tank</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <Form onSubmit={formik.handleSubmit}>
-      <Form.Group className="mb-3">
-        <Form.Label>Tank Name</Form.Label>
-        <Form.Control
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          name="name"
-        />
-      </Form.Group>
-      {formik.touched.name && formik.errors.name ? (
-        <div style={{ color: "red" }}>{formik.errors.name}</div>
-      ) : null}
-      <Form.Group className="mb-3">
-        <Form.Label>Size</Form.Label>
-        <Form.Control
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.size}
-          name="size"
-        />
-      </Form.Group>
-
-      {formik.touched.size && formik.errors.size ? (
-        <div style={{ color: "red" }}>{formik.errors.size}</div>
-      ) : null}
-
-
-      {registrationError && (
-        <div class="text-red-400 font-bold mt-5">{registrationError}</div>
-      )}
-     <div className="d-grid gap-2">
-      <Button
-        variant="secondary"
-        size="md"
-        type="submit"
-      >
-        Save
-      </Button>
-    </div>
-    </Form>
-    </Modal.Body>
-      </Modal>
     </MaintenanceDashboard>
   );
 }
