@@ -7,9 +7,11 @@ import MobileDashboardNav from "./MobileDashboardNav";
 export default function MaintenanceDashboard({ children, user }) {
   const [state, setState] = useState({
     mobileView: null,
-    //required because there is sometimes a slight delay determining window size which can cause the wrong
-    //component to render and cause a brief flicker
-    //do not render anything until viewport is determined
+    /*
+      required because there is sometimes a slight delay determining window size which can cause the wrong
+      component to render and cause a brief flicker
+      do not render anything until viewport is determined
+    */
     isReady: false,
   });
 

@@ -1,9 +1,6 @@
 import Link from "next/link";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Popover from "react-bootstrap/Popover";
 import { useRouter } from "next/router";
+import { Nav, Navbar, OverlayTrigger, Popover } from "react-bootstrap";
 import Login from "./auth/login";
 import Register from "./auth/register";
 export default function Header({ user }) {

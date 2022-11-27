@@ -1,13 +1,8 @@
-import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useFormik } from "formik";
 import axios from "axios";
 
 export default function AddTankModal({ show, handleClose }) {
-  const [registrationError, setRegistrationError] = useState(false);
-
-
-
   const validate = (values) => {
     const errors = {};
 
@@ -36,15 +31,10 @@ export default function AddTankModal({ show, handleClose }) {
           dateStarted: dateStarted,
         })
         .then((response) => {
-          if (response.data.status === "failure") {
-            setRegistrationError(response.data.msg);
-          }
-          console.log(props);
-          props.refreshData();
+          window.location.reload();
         })
         .catch((error) => {
           console.log(error);
-          setRegistrationError(error.response.data);
         });
     },
   });
@@ -106,9 +96,6 @@ export default function AddTankModal({ show, handleClose }) {
             <div style={{ color: "red" }}>{formik.errors.size}</div>
           ) : null}
 
-          {registrationError && (
-            <div class="text-red-400 font-bold mt-5">{registrationError}</div>
-          )}
           <div className="d-grid gap-2">
             <Button variant="secondary" size="md" type="submit">
               Save

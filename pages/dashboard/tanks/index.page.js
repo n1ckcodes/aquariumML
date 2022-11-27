@@ -1,5 +1,5 @@
 import { withSessionSsr } from "helpers/ironSession";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -30,7 +30,7 @@ export default function Tanks({ user }) {
     return axios
       .get(`/api/tanks/user/${user.UID}/all`)
       .then((results) => {
-        return results.data;
+        return results.data
       })
       .catch((error) => {
         console.error(error);
@@ -52,7 +52,7 @@ export default function Tanks({ user }) {
   return (
     <MaintenanceDashboard user={user}>
       {show && <AddTankModal show={show} handleClose={handleClose} />}
-      <Col xs={6}>
+      <Col xs={5} sm={5}>
         <div>
           <FontAwesomeIcon
             style={{ fontSize: "3em", color: "gray" }}
@@ -61,20 +61,18 @@ export default function Tanks({ user }) {
           />
           Sort by
         </div>
-      </Col>
-      <Col xs={6}>
-        <div style={{ float: "right" }}>
-          <FontAwesomeIcon
+        <FontAwesomeIcon
             style={{ fontSize: "3em", color: "green" }}
             icon="square-plus"
             onClick={() => setShow(true)}
           />
-        </div>
       </Col>
+      <Row>
+     
       {userTanks.length > 0 ? (
         userTanks.map((Tank) => {
           return (
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={6} md={3}>
               <div
                 style={{
                   display: "flex",
@@ -91,6 +89,7 @@ export default function Tanks({ user }) {
       ) : (
         <p>No tanks found</p>
       )}
+      </Row>
     </MaintenanceDashboard>
   );
 }
