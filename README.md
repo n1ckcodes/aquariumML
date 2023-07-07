@@ -1,4 +1,4 @@
-NextJS project for managing aquarium maintenance activities.
+Simple app for recording aquarium maintenance events.
 
 Built with:
 * NextJS
