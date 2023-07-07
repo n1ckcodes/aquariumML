@@ -5,18 +5,6 @@ import Link from "next/link";
 import Card from "components/Tank/Card";
 
 export default function Home() {
-  const { isLoaded, userId, sessionId, getToken } = useAuth();
-  const router = useRouter();
-
-  useEffect(() => {
-    //In case the user signs out while on the page.
-    if (!isLoaded || !userId) {
-       router.push("/sign-in");
-    }
-  }, [userId, isLoaded]);
-
-
-
   return (
     <div>
       <header>
