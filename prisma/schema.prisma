@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Tank {
+  TankID          Int       @id @default(autoincrement())
+  TankUID         String?   @db.VarChar(100)
+  UserID          String?   @db.VarChar(255)
+  TankName        String    @db.VarChar(255)
+  TankStartedDate DateTime? @db.Date
+  TankSizeGallons Float?    @db.Float
+  Location        String?   @db.VarChar(45)
+  TankDesc        String?   @db.VarChar(255)
+
+  @@index([UserID], map: "UserID_idx")
+}
+
+model Users {
+  UserID String @id @unique(map: "UserID_UNIQUE") @db.VarChar(255)
+}
+
+model TankEvents {
+  TankEventID Int    @id @default(autoincrement())
+  TankID      Int
+  EventType   String @db.VarChar(45)
+}

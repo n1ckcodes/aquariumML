@@ -1,62 +1,30 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { Nav, Navbar, OverlayTrigger, Popover } from "react-bootstrap";
-import Login from "./auth/login";
-import Register from "./auth/register";
-export default function Header({ user }) {
-  const router = useRouter();
+import { useAuth } from "@clerk/nextjs";
+export default function Header() {
+  const { isLoaded, userId, sessionId, getToken } = useAuth();
   return (
-    <Navbar bg="dark" variant="dark" className="py-2">
-      <Navbar.Brand href="#home">
-        <Link href="/" className="header-nav-brand-link">
-          <a>
-            Aquarium<span style={{ color: "#0096FF" }}>ML</span>
-          </a>
+    <div class="bg-cyan-700 text-white flex flex-col justify-center text-xl text-size-100 h-20 w-full sticky top-0 ">
+      <div class="place-content-start absolute left-0  pl-10">
+        <Link href={"/"}>
+          AQUARIUM QL
         </Link>
-      </Navbar.Brand>
-
-      {!user ? (
-        <Nav className=" ms-auto">
-          <OverlayTrigger
-            rootClose
-            trigger="click"
-            placement="bottom"
-            overlay={
-              <Popover id={`popover-positioned-bottom`}>
-                <Popover.Body>
-                  <Login />
-                </Popover.Body>
-              </Popover>
-            }
-          >
-            <Nav.Link eventKey={2} href="#memes">
-              Login
-            </Nav.Link>
-          </OverlayTrigger>
-          <OverlayTrigger
-            rootClose
-            trigger="click"
-            placement="bottom"
-            overlay={
-              <Popover id={`popover-positioned-bottom`}>
-                <Popover.Body>
-                  <Register />
-                </Popover.Body>
-              </Popover>
-            }
-          >
-            <Nav.Link eventKey={1} href="#rfdsa">
+      </div>
+      <div class="absolute right-0  pr-20 inline-flex ">
+        {userId ? (
+          <></>
+        ) : (
+          <>
+            {" "}
+            <Link href={"/sign-up"} class=" hover:text-cyan-400">
               Register
-            </Nav.Link>
-          </OverlayTrigger>
-        </Nav>
-      ) : (
-        <Nav className="ms-auto">
-          <Nav.Link eventKey={1} href="/api/auth/logout">
-            Logout
-          </Nav.Link>
-        </Nav>
-      )}
-    </Navbar>
+            </Link>{" "}
+            &nbsp;| &nbsp;
+            <Link href={"/sign-in"} class=" hover:text-cyan-400">
+              Sign In
+            </Link>
+          </>
+        )}
+      </div>
+    </div>
   );
 }

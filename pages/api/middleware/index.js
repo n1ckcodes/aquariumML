@@ -1,9 +1,9 @@
-const routeAuthentication = (req, res, next) => {
-  if (!req.session.user) {
-    return res.status(401).json({ message: "Invalid API key or session" });
-  }
+import { getAuth } from "@clerk/nextjs/server";
 
-  return next();
+const routeAuthentication = (req, res, next) => {
+  const { userId } = getAuth(req);
+  if (userId) return next();
+  return res.status(401);
 };
 
 module.exports = {

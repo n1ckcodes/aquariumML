@@ -1,96 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200&family=Oswald:wght@200&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400&display=swap');
-html,
-body
- {
-  font-family: 'Roboto', sans-serif;
-  background: #fffbfe;
-  border: 3px;
-  box-sizing: border-box;
-  height:100vh;
-  display: flex;
-  flex-direction: column;
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Dancing+Script:wght@500&family=Oswald:wght@500&family=Playfair+Display:ital,wght@1,700&display=swap");
+
+/* font-family: 'Abel', sans-serif;
+
+font-family: 'Dancing Script', cursive;
+
+font-family: 'Oswald', sans-serif;
+
+font-family: 'Playfair Display', serif; */
+
+body {
+  font-family: "Abel", sans-serif;
 }
 
-header  {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size:4em;
-  font-weight:bold;
-  color:white;
-  text-align:center;
+.container {
+  background: white;
 }
 
-
-
-body,html {
-  margin: 0;
-  padding: 0;
-}
-* {
-  box-sizing: border-box;
+.cl-rootBox.cl-userButton-root {
+  margin: 0 auto;
 }
 
-
-footer {
-  background: black;
-  color:white;
-  margin:0;
-  padding:0;
+.cl-avatarBox.cl-userButtonAvatarBox{
+  width:3.75rem;
+  height:3.75rem;
+  object-fit:contain;
 }
-
-
-
-
-
-
-
-.footer--pin {
-  position: relative;
-  left: 0;
-  bottom: 0;
-}
-
-/* Header nav  */
-
-
-.navbar {
-  font-family: 'Barlow Condensed', sans-serif;
-  padding:15px;
-  font-size:1.25em;
-}
-
-
-
-.navbar-brand a{
-  color:white;
-  text-decoration: none;
-  font-size:1.5em;
-}
-
-.navbar-brand a:hover{
-  color:white;
-}
-
-
-
-nav {
-  font-family: 'Barlow Condensed', sans-serif;
-}
-nav ul{
-  padding-left:0 !important;
-}
-nav ul li {
-  list-style: none;
-  text-align: center;
-  padding-left:0;
-}
-
-nav a{
-  text-decoration: none;
-  color:black;
-}
-
